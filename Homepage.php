@@ -11,7 +11,7 @@
 
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-3">ReData</h1>
+    <h1 class="display-3">TSource</h1>
     <p class="lead">A open resource website for teachers and students.</p>
   </div>
 </div>
