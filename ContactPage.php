@@ -3,17 +3,21 @@
 <head>
 <meta charset="utf-8">
 <title>Contact an Administrator</title>
+<?php include 'stylesheet.php';?>
 </head>
 
 <body>
+<?php include 'header.php';?>
+<div class="container">
 <form method="post">
+	</br>
 <p>
-	<label>Please enter your email</label>
+	<label class="mr-sm-2">Please enter your email</label>
 	<input type="email" name="email" value=""/><br /><br />
 </p>
 
 <p>
-	<label>Please Specify Contact Reason</label>
+	<label class="mr-sm-2">Please Specify Contact Reason</label>
 	<select name="reason">
 		<option value="creation">Profile Creation</option>
 		<option value="upload">File Upload</option>
@@ -23,14 +27,14 @@
 </p>
 
 <p>
-	<label>Please specify your concerns here</label><br/>
-	<textarea name="textAreaField" id="textAreaField" rows="4" cols="50"></textarea>
+	<label class="mr-sm-2">Please specify your concerns here</label><br/>
+	<textarea class="form-control" name="textAreaField" id="textAreaField" rows="4" cols="50"></textarea>
 </p>
 <p>
-	<input type="submit" name="submit" value="submit"/>
+	<input class="btn btn-secondary" type="submit" name="submit" value="submit"/>
 </p>
 
 </form>
-
+	</div>
 </body>
 </html>
