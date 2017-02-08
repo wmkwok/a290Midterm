@@ -11,25 +11,22 @@
 <div class="container">
 <form method="post">
 	</br>
-<p>
+<div class="form-group">
 	<label class="mr-sm-2">Please enter your email</label>
-	<input type="email" name="email" value=""/><br /><br />
-</p>
+	<input type="email" class="form-control" name="email" value=""/></br>
 
-<p>
 	<label class="mr-sm-2">Please Specify Contact Reason</label>
-	<select name="reason">
+	<select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="reason">
 		<option value="creation">Profile Creation</option>
 		<option value="upload">File Upload</option>
 		<option value="login">Login</option>
 		<option value="other">Other</option>
-	</select>
-</p>
+	</select></br></br>
 
-<p>
-	<label class="mr-sm-2">Please specify your concerns here</label><br/>
+	<label class="mr-sm-2">Please specify your concerns here</label>
 	<textarea class="form-control" name="textAreaField" id="textAreaField" rows="4" cols="50"></textarea>
-</p>
+	</div>
+	
 <p>
 	<input class="btn btn-secondary" type="submit" name="submit" value="submit"/>
 </p>
