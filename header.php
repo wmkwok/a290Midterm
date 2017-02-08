@@ -16,7 +16,9 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-md-0">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login/Register</button>
+           <a href="#" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Login</a>
+		   <a href="CreateProfile.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Sign Up</a>
+            
         </form>
     </div>
 </nav>

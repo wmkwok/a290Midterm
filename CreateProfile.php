@@ -3,17 +3,27 @@
 <head>
 <meta charset="utf-8">
 <title>Create Profile</title>
+<?php include 'stylesheet.php';?>
 </head>
 <body>
-<form method="post">
-<p>
-	<label>Name</label>
-	<input type="text" name="name" value=""/><br />
-</p>
+<?php include 'header.php';?>
 
-<p>
-	<label>School Type</label>
-	<select name="schoolType">
+<div class="container">
+<form method="post">
+<div class="form-group">
+	<label class="mr-sm-2">Name</label>
+	<input type="text" class="form-control" name="name" value=""/><br>
+	<label class="mr-sm-2">Username</label>
+	<input type="text" class="form-control" name="userName" value=""/>
+	<label class="mr-sm-2">Email Address</label>
+	<input type="email" class="form-control" name="email" value=""/>
+	<label class="mr-sm-2">Password (8-16 characters, numbers and letters only)</label>
+	<input type="password" class="form-control" name="password" value=""/>
+	</div>
+	
+<div class="form-group">
+	<label class="mr-sm-2">School Type</label>
+	<select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="schoolType">
 		<option value="select">Select</option>
 		<option value="public">Public</option>
 		<option value="private">Private</option>
@@ -21,43 +31,29 @@
 		<option value="techCenter">Technology Center</option>
 		<option value="other">Other</option>
 	</select>
-</p>
 
-<p>
-	<label>School Level</label>
-	<select name="schoolLevel">
+	<label class="mr-sm-2">School Level</label>
+	<select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="schoolLevel">
 		<option value="select">Select</option>
 		<option value="preschool">Pre-school</option>
 		<option value="elementary">Elementary School</option>
 		<option value="middle">Middle School</option>
 		<option value="high">High School</option>
 	</select>
-</p>
 
-<p>
-	<label>State</label>
-	<select name="state">
+	<label class="mr-sm-2">State</label>
+	<select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="state">
 		<option value="select">Select</option>
 		<option value="indiana">Indiana</option>
 		<option value="illinois">Illinois</option>
 		<option value="ohio">Ohio</option>
 		<option value="other">Other</option>
 	</select>
-</p>
-
-<p>
-	<label>Username</label>
-	<input type="text" name="userName" value=""/><br /><br />
-	<label>Email Address</label>
-	<input type="email" name="email" value=""/><br /><br />
-	<label>Password (8-16 characters, numbers and letters only)</label>
-	<input type="password" name="password" value=""/><br /><br />
-</p>
-
-<p>
-	<input type="submit" name="submit" value="Submit"/>
-</p>
+	</div>
+	<input type="submit" class="btn btn-secondary" name="submit" value="Submit"/>
 </form>
-
+	</div>
+	
+<?php include 'footer.php';?>
 </body>
 </html>
