@@ -2,10 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Resourse Center</title>
+<title>Resources</title>
 </head>
 
 <body>
+<?php include 'header.html';?>
 <form method="post">
 	<p>
 	<label>Grade Level</label>
@@ -17,7 +18,7 @@
 		   <option value="high">High School</option>
 	</select>
 	</p>
-	
+
 	<p>
 	<label>Standard</label>
 	   <select name="standard" size="1">
@@ -27,7 +28,7 @@
 		   <option value="ap">AP CS Principles</option>
 	</select>
 	</p>
-	
+
 	<p>
 	<label>Grade Level for these standards</label>
 	   <select name="standardGradeLevel" size="1">
@@ -36,10 +37,10 @@
 		   <option value="elementary">Elementary School</option>
 		   <option value="middle">Middle School</option>
 		   <option value="high">High School</option>
-		   <option value="college">College</option> 
+		   <option value="college">College</option>
 	</select>
 	</p>
-	
+
 	<p>
 	<label>Framework Concept</label>
 	   <select name="concept" size="1">
@@ -51,7 +52,7 @@
 		   <option value="networks">Networks and the Internet</option>
 	</select>
 	</p>
-	
+
 	<p>
 	<label>Resource Type</label>
 	   <select name="resourceType" size="1">
@@ -62,7 +63,7 @@
 		   <option value="project">Project</option>
 	</select>
 	</p>
-	
+
 	<p>
 	<label>Select a subject that involves or related to this resource</label>
 	   <select name="subject" size="1">
@@ -77,7 +78,7 @@
 		   <option value="history">History and Geography</option>
 	</select>
 	</p>
-	
+
 	<p>
 	<label>Select an instructional method that can be used for this resource</label>
 	   <select name="instructionalMethod" size="1">
@@ -93,7 +94,7 @@
 		   <option value="assessment">Assessment</option>
 	</select>
 	</p>
-	
+
 	<p>
 	<label>Select a programming language used in the resource</label>
 	   <select name="programLanguage" size="1">
@@ -111,7 +112,7 @@
 		   <option value="nonProgramming">Not Programming Related</option>
 	</select>
 	</p>
-	
+
 	<p>
 	<label>Select the state you want to search the resource</label>
 	   <select name="state" size="1">
@@ -121,14 +122,14 @@
 		   <option value="illinois">Illinois</option>
 		   <option value="ohio">Ohio</option>
 	</select>
-	</p>	
-	
+	</p>
+
 	<p>
 		<label for="searchBar">Keyword Search</label>
 		<input type="text" name="searchBar" value=""/>
 	<p><input type="submit" name="submit" value="Search"/></p>
 	</p>
-	
+
 </form>
 
 
