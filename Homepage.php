@@ -119,7 +119,7 @@
 	
 	<p>
 		<label for="searchBar">Keyword Search</label>
-		<input class="form-control" type="text" name="searchBar" value=""/>
+		<input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python Exercises"/>
 	<p><input class="btn btn-secondary" type="submit" name="submit" value="Search"/></p>
 	</p>
 
