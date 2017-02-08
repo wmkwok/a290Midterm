@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Resource</title>
+<?php include 'stylesheet.php';?>
 </head>
 
 <body>
@@ -132,6 +133,6 @@
 
 </form>
 
-
+<?php include "footer.php"?>
 </body>
 </html>
