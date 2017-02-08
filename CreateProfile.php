@@ -18,7 +18,9 @@
 	<label class="mr-sm-2">Email Address</label>
 	<input type="email" class="form-control" name="email" value=""/>
 	<label class="mr-sm-2">Password (8-16 characters, numbers and letters only)</label>
-	<input type="password" class="form-control" name="password" value=""/>
+	<input type="password" class="form-control" minlength="8" maxlength="16" name="password" value=""/>
+	<label class="mr-sm-2">Repeat Password</label>
+	<input type="password" class="form-control" minlength="8" maxlength="16" name="repeatPass" value=""/>
 	</div>
 	
 <div class="form-group">
