@@ -15,7 +15,7 @@
         <th>#</th>
         <th>Name</th>
         <th>Author</th>
-        <th>Rate</th>
+        <th>Rating</th>
       </tr>
     </thead>
     <tbody>
