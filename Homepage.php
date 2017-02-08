@@ -2,11 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Resources</title>
+<title>Resource</title>
 </head>
 
 <body>
-<?php include 'header.html';?>
+<?php include 'header.php';?>
 <form method="post">
 	<p>
 	<label>Grade Level</label>
