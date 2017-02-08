@@ -5,7 +5,7 @@
     <a class="nav-link" href="ContactPage.php">Contact Us</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Copyright</a>
+    <a class="nav-link" href="Copyright.php">Copyright</a>
   </li>
 </ul>
           </div>
