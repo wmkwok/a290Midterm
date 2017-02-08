@@ -1,7 +1,12 @@
     <footer class="footer">
           <div class="bg-faded">
-            <span class="text-muted">Place sticky footer content here.</span>
-            <br>
-            <br>
+          <ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link" href="#">Contact Us</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Copyright</a>
+  </li>
+</ul>
           </div>
         </footer>
