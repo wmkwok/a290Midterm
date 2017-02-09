@@ -56,7 +56,12 @@
   </form>
 </div>
 
-
+<?php
+   //query for taken username
+   //check password for valid input
+   //check password for equal repeat
+   //add info to database
+   ?>
 	
 <?php include 'footer.php';?>
 </body>
