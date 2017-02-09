@@ -1,52 +1,52 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <?php include 'stylesheet.php';?>
-
+    <?php include 'stylesheet.php';?>
   </head>
 
   <body>
-      <?php include 'header.php';?>
+    <?php include 'header.php';?>
     <div class="container">
-        <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Author</th>
-        <th>Rating</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Program in C</td>
-        <td>Otto</td>
-        <td>* * * * </td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Program in C</td>
-        <td>Otto</td>
-        <td>* * * * </td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Program in C</td>
-        <td>Otto</td>
-        <td>* * * * * *</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Program in C</td>
-        <td>Otto</td>
-        <td>* * * * </td>
-      </tr>
-    </tbody>
-  </table>
+      <table class="table table-bordered">
+	<thead>
+	  <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Rating</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+            <th scope="row">1</th>
+            <td>Program in C</td>
+            <td>Otto</td>
+            <td>* * * * </td>
+	  </tr>
+	  <tr>
+            <th scope="row">2</th>
+            <td>Program in C</td>
+            <td>Otto</td>
+            <td>* * * * </td>
+	  </tr>
+	  <tr>
+            <th scope="row">3</th>
+            <td>Program in C</td>
+            <td>Otto</td>
+            <td>* * * * * *</td>
+	  </tr>
+	  <tr>
+            <th scope="row">4</th>
+            <td>Program in C</td>
+            <td>Otto</td>
+            <td>* * * * </td>
+	  </tr>
+	</tbody>
+      </table>
     </div>
-<?php include 'footer.php' ?>
+    <?php include 'footer.php' ?>
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -56,6 +56,8 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
 
+
+
+  </body>
 </html>
