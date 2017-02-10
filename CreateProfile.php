@@ -25,7 +25,7 @@
 	
     <div class="form-group">
       <label class="mr-sm-2">School Type</label>
-      <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required="required" name="schoolType">
+      <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="schoolType">
 	<option disabled selected value>Select</option>
 	<option value="public">Public</option>
 	<option value="private">Private</option>
@@ -35,7 +35,7 @@
       </select>
 
       <label class="mr-sm-2">School Level</label>
-      <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required="required" name="schoolLevel">
+      <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="schoolLevel">
 	<option disabled selected value>Select</option>
 	<option value="preschool">Pre-school</option>
 	<option value="elementary">Elementary School</option>
@@ -45,7 +45,7 @@
       </select>
 
       <label class="mr-sm-2">State</label>
-      <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required="required" name="state">
+      <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="state">
 	<option disabled selected value>Select</option>
 	<option value="indiana">Indiana</option>
 	<option value="illinois">Illinois</option>
@@ -58,7 +58,7 @@
 </div>
 
 <?php
-   if(isset($_POST["submit"])){
+   if($_SERVER["REQUEST_METHOD"] == "POST"){
    //get all posted variables
    $name = test_input($_POST["name"]);
    $email = $_POST["email"];
@@ -76,27 +76,24 @@
    mysql_select_db('resource') or die(mysql_error());
    //query for username 
    $userFind = mysql_query("SELECT * FROM users WHERE username='$username'") or die(mysql_error());
+	   //check passwords
 	   if($password != $repeat){
 		   echo "Opps! Your passwords don't match!";
 	   }
+	   //if no results come up
 	   elseif(mysql_num_rows($userFind) == 0){
 		   //do the insert magic here and give the user a chocolate chip cookie
-		   $addUser = "INSERT INTO users (username, name, email, password, schooltype, schoollevel, state, admin) VALUES ('$username', '$name', '$email', '$password', '$type', '$level', '$state', 0)";
+		   $hash = password_hash($password, PASSWORD_DEFAULT);
+		   $addUser = "INSERT INTO users (username, name, email, password, schooltype, schoollevel, state) VALUES ('$username', '$name', '$email', '$hash', '$type', '$level', '$state')";
 		   mysql_query($addUser) or die(mysql_error());
 		   mysql_close();
-		   echo "Sucess! You are signed up!";
+		   echo "Sucess! You are signed up!";			   
+
 	   }
 	   else{
 		   echo "Username already in use";
 	   }
    }
-
-//query for taken username
-   //check password for valid input
-   //check password for equal repeat
-   //add info to database
-
-
 
 // define variables and set to empty values
 $name = $email = $gender = $comment = $website = "";
