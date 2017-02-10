@@ -14,7 +14,7 @@
       <label class="mr-sm-2">Name</label>
       <input type="text" required="required" class="form-control" name="name" value=""/><br>
       <label class="mr-sm-2">Username</label>
-      <input type="text" required="required" class="form-control" name="userName" value=""/>
+      <input type="text" required="required" class="form-control" name="username" value=""/>
       <label class="mr-sm-2">Email Address</label>
       <input type="email" required="required" class="form-control" name="email" value=""/>
       <label class="mr-sm-2">Password (8-16 characters, numbers and letters only)</label>
@@ -74,19 +74,20 @@
    //connect to mysql
    mysql_connect("localhost", 'root', "") or die(mysql_error());
    mysql_select_db('resource') or die(mysql_error());
-   $userFind = mysql_query("SELECT FROM users (username) WHERE username=$username");
-	   if($userFind){
-		   echo "name already exists";
-	   }
-	   elseif($password != $repeat){
+   //query for username 
+   $userFind = mysql_query("SELECT * FROM users WHERE username='$username'") or die(mysql_error());
+	   if($password != $repeat){
 		   echo "Opps! Your passwords don't match!";
 	   }
-	   else{
+	   elseif(mysql_num_rows($userFind) == 0){
 		   //do the insert magic here and give the user a chocolate chip cookie
-		   $addUser = "INSERT INTO users (username, name, email, password, schooltype, schoollevel, state) VALUES ('$username', '$name', '$email', '$password', '$type', '$level', '$state')";
+		   $addUser = "INSERT INTO users (username, name, email, password, schooltype, schoollevel, state, admin) VALUES ('$username', '$name', '$email', '$password', '$type', '$level', '$state', 0)";
 		   mysql_query($addUser) or die(mysql_error());
 		   mysql_close();
 		   echo "Sucess! You are signed up!";
+	   }
+	   else{
+		   echo "Username already in use";
 	   }
    }
 
