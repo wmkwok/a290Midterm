@@ -12,11 +12,11 @@
   <form method="post">
     <div class="form-group">
       <label class="mr-sm-2">Name</label>
-      <input type="text" required="required" class="form-control" name="name" value=""/><br>
+      <input type="text" required="required" class="form-control" name="name" value="" minlength="4" maxlength="30"/><br>
       <label class="mr-sm-2">Username</label>
-      <input type="text" required="required" class="form-control" name="username" value=""/>
+      <input type="text" required="required" class="form-control" name="username" value="" minlength="5" maxlength="20"/>
       <label class="mr-sm-2">Email Address</label>
-      <input type="email" required="required" class="form-control" name="email" value=""/>
+      <input type="email" required="required" class="form-control" name="email" value="" maxlength="60"/>
       <label class="mr-sm-2">Password (8-16 characters, numbers and letters only)</label>
       <input type="password" required="required" class="form-control" minlength="8" maxlength="16" name="password" value=""/>
       <label class="mr-sm-2">Repeat Password</label>
@@ -60,14 +60,14 @@
 <?php
    if($_SERVER["REQUEST_METHOD"] == "POST"){
    //get all posted variables
-   $name = test_input($_POST["name"]);
+   $name = sanitize(($_POST["name"]));
    $email = $_POST["email"];
-   $username = test_input($_POST["username"]);
-   $password = test_input($_POST["password"]);
-   $repeat = test_input($_POST["repeatPass"]);
-   $type = test_input($_POST["schoolType"]);
-   $level = test_input($_POST["schoolLevel"]);
-   $state = test_input($_POST["state"]);
+   $username = sanitize($_POST["username"]);
+   $password = sanitize($_POST["password"]);
+   $repeat = sanitize($_POST["repeatPass"]);
+   $type = sanitize($_POST["schoolType"]);
+   $level = sanitize($_POST["schoolLevel"]);
+   $state = sanitize($_POST["state"]);
 
 
 
@@ -78,13 +78,13 @@
    $userFind = mysql_query("SELECT * FROM users WHERE username='$username'") or die(mysql_error());
 	   //check passwords
 	   if($password != $repeat){
-		   echo "Opps! Your passwords don't match!";
+		   echo "Oops! Your passwords don't match!";
 	   }
 	   //if no results come up
 	   elseif(mysql_num_rows($userFind) == 0){
 		   //do the insert magic here and give the user a chocolate chip cookie
-		   $hash = password_hash($password, PASSWORD_DEFAULT);
-		   $addUser = "INSERT INTO users (username, name, email, password, schooltype, schoollevel, state) VALUES ('$username', '$name', '$email', '$hash', '$type', '$level', '$state')";
+		   $password = password_hash($password, PASSWORD_DEFAULT);
+		   $addUser = "INSERT INTO users (username, name, email, password, schooltype, schoollevel, state) VALUES ('$username', '$name', '$email', '$password', '$type', '$level', '$state')";
 		   mysql_query($addUser) or die(mysql_error());
 		   mysql_close();
 		   echo "Sucess! You are signed up!";			   
@@ -94,26 +94,15 @@
 		   echo "Username already in use";
 	   }
    }
-
-// define variables and set to empty values
-$name = $email = $gender = $comment = $website = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = test_input($_POST["name"]);
-  $password = test_input($_POST["password"]);
-  $repeat = test_input($_POST["repeatPass"]);
-}
-
-function test_input($data) {
+	
+function sanitize($data) {
   $data = trim($data); //Strip whitespace (or other characters) from the beginning and end of a string
   $data = stripslashes($data); //Un-quotes a quoted string
   $data = htmlspecialchars($data); //
   if (isset($data)) 
   { return $data; }
-
 }
-
-   ?>
+?>
 	
 <?php include 'footer.php';?>
 </body>
