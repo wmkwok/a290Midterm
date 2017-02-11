@@ -3,51 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Resource</title>
-<style>
-table
-{
-	width:700px;
-	border:2px solid #000000;
-	border-collapse: collapse;
-	font:normal 18px/1.5em "times",Verdana,Lucide,Arial,Helvertica,sans-serif;
-}
-caption
-{
-	text-align:left;
-}
-th
-{
-	text-align:center;
-	background-color:#999999;
-	border:2px solid #000000;
-}
-td
-{
-	text-align:left;
-	background-color:#E8E8E8;
-	border:2px solid #000000;
-}
-tfoot td
-{
-	text-align:right;
-	background-color:#FFFFFF;
-	border:2px solid #000000;
-}
-colgroup
-{
-	width:180px;
-	color:#FF0000;
-}
-th
-{
-	color:#F4F4F4;
-	background-color:#999999;
-	border:2px solid #000000;
-}
-	</style>
+<?php include 'stylesheet.php';?>
 </head>
 
-<table width="554" height="448" class="table">
+<body>
+<div class="container">
+<table width="554" height="448" class="table table-bordered">
   <thead>
     <tr>
       <th width="69">#</th>
@@ -64,7 +25,7 @@ th
       <td>level here</td>
       <td>*****</td>
       <td>
-         <img src="fonts/`edit.ico" width="20" height="20" /> 
+         <img src="fonts/edit.ico" width="20" height="20" /> 
          <img src="fonts/trash.ico" width="25" height="25" /> 
       </td>
     </tr>
@@ -121,6 +82,7 @@ th
     </tr>
   </tbody>
 </table>
+	</div>
 
 </body>
 </html>
