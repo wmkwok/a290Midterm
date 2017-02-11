@@ -64,9 +64,9 @@ th
       <td>Tompson</td>
       <td>the_mark7</td>
       <td>
-         <img src="edit.ico" width="20" height="20" /> 
-         <img src="trash.ico" width="25" height="25" /> 
-         <img src="block.ico" width="20" height="20" /> 
+         <img src="fonts/edit.ico" width="20" height="20" /> 
+         <img src="fonts/trash.ico" width="25" height="25" /> 
+         <img src="fonts/block.ico" width="20" height="20" /> 
       </td>
     </tr>
     <tr>
@@ -75,9 +75,9 @@ th
       <td>Jacobs</td>
       <td>ash11927</td>
       <td>
-         <img src="edit.ico" width="20" height="20" /> 
-         <img src="trash.ico" width="25" height="25" /> 
-         <img src="block.ico" width="20" height="20" /> 
+         <img src="fonts/edit.ico" width="20" height="20" /> 
+         <img src="fonts/trash.ico" width="25" height="25" /> 
+         <img src="fonts/block.ico" width="20" height="20" /> 
       </td>
     </tr>
     <tr>
@@ -86,9 +86,9 @@ th
       <td>Ann</td>
       <td>audann84</td>
       <td>
-         <img src="edit.ico" width="20" height="20" /> 
-         <img src="trash.ico" width="25" height="25" /> 
-         <img src="block.ico" width="20" height="20" /> 
+         <img src="fonts/edit.ico" width="20" height="20" /> 
+         <img src="fonts/trash.ico" width="25" height="25" /> 
+         <img src="fonts/block.ico" width="20" height="20" /> 
       </td>
     </tr>
     <tr>
@@ -97,9 +97,9 @@ th
       <td>Robinson</td>
       <td>jr5527</td>
       <td>
-         <img src="edit.ico" width="20" height="20" /> 
-         <img src="trash.ico" width="25" height="25" /> 
-         <img src="block.ico" width="20" height="20" /> 
+         <img src="fonts/edit.ico" width="20" height="20" /> 
+         <img src="fonts/trash.ico" width="25" height="25" /> 
+         <img src="fonts/block.ico" width="20" height="20" /> 
       </td>
     </tr>
     <tr>
@@ -108,9 +108,9 @@ th
       <td>Butler</td>
       <td>aaron_butler</td>
       <td>
-		 <img src="edit.ico" width="20" height="20" /> 
-         <img src="trash.ico" width="25" height="25" /> 
-         <img src="block.ico" width="20" height="20" /> 
+		 <img src="fonts/edit.ico" width="20" height="20" /> 
+         <img src="fonts/trash.ico" width="25" height="25" /> 
+         <img src="fonts/block.ico" width="20" height="20" /> 
       </td>
     </tr>
     <tr>
@@ -119,9 +119,9 @@ th
       <td>Albert</td>
       <td>cab79</td>
       <td>
-         <img src="edit.ico" width="20" height="20" /> 
-         <img src="trash.ico" width="25" height="25" /> 
-         <img src="block.ico" width="20" height="20" /> 
+         <img src="fonts/edit.ico" width="20" height="20" /> 
+         <img src="fonts/trash.ico" width="25" height="25" /> 
+         <img src="fonts/block.ico" width="20" height="20" /> 
           
       </td>
     </tr>
