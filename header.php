@@ -12,11 +12,11 @@
                 <a class="nav-link" href="Homepage.php">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Upload</a>
+                <a class="nav-link" href="Resource_upload.php">Upload</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-md-0">
-           <a href="#" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Login</a>
+           <a href="Login.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Login</a>
 		   <a href="CreateProfile.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Sign Up</a>
             
         </form>
