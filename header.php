@@ -12,7 +12,7 @@
                 <a class="nav-link" href="Homepage.php">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Upload</a>
+                <a class="nav-link" href="Resource_upload.php">Upload</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-md-0">
