@@ -8,6 +8,14 @@
 
   <body>
     <?php include 'header.php';?>
+    
+     <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+	<h1 class="display-3">Contact Us</h1>
+	<p class="lead">Have a problem or suggestion? Tell us and we'll listen.</p>
+      </div>
+    </div>
+    
     <div class="container">
       <form method="post">
 	<br>
