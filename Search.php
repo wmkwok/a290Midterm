@@ -3,16 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Untitled Document</title>
-<style>
-	body
-  {
-  background-color:#AAA8A8;
-  }
-	</style>
+<?php include 'stylesheet.php';?>
 </head>
 
 <body>
-<button type="button" class="btn btn-default" style="position: relative; height:30px;width:150px; left: 100px; top: 100px" >Search</button>
-<input  type="text" name="name" height="50" size="50" maxsize="50" value="Name Here" style="position: relative; left: 100px; top: 100px">
+<input class="form-control" type="text" name="name" height="50" size="50" maxsize="50" value="" placeholder="Name Here" style="position: relative; left: 100px; top: 100px">
+<button type="submit" class="btn btn-secondary" style="position: relative; height:30px;width:150px; left: 100px; top: 100px" >Search</button>
 </body>
 </html>

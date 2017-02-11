@@ -3,42 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Untitled Document</title>
-<style>
-	div{width:700px; height:100px; background-color:#9B9898}
-	p{font-size: 18px;}
-	table
-{
-	width:700px;
-	border:2px solid #000000;
-	border-collapse: collapse;
-	font:normal 18px/1.5em "times",Verdana,Lucide,Arial,Helvertica,sans-serif;
-}
-caption
-{
-	text-align:left;
-}
-th
-{
-	text-align:center;
-	background-color:#999999;
-	border:2px solid #000000;
-}
-td
-{
-	text-align:left;
-	background-color:#E8E8E8;
-	border:2px solid #000000;
-}
-	</style>
-	
+	<?php include 'stylesheet.php';?>
 </head>
 
 <body>
-<div><p>Number of User: </n> </n> </n>  999</p>
-	<p>Number of Resource:  </n> </n> </n>  9999</p> </div>
+<div class="text-center">
+	<label class="mr-sm-2"><b>Number of users: 999</b></label><br>
+<label class="mr-sm-2"><b>Number of resources: 9999</b></label>
+	</div>	
 	
 <br/>
-<table width="660" height="247" class="table">
+<div class="container">
+<table width="660" height="247" class="table table-hover">
   <thead>
     <tr>
       <th width="144" height="71">Resource Ranking</th>
@@ -65,7 +41,7 @@ td
       
   </tbody>
 </table>
-
+</div>
 
 </body>
 </html>

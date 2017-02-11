@@ -3,36 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Untitled Document</title>
-<style>
-	
-	table
-{
-	width:700px;
-	border:2px solid #000000;
-	border-collapse: collapse;
-	font:normal 18px/1.5em "times",Verdana,Lucide,Arial,Helvertica,sans-serif;
-}
-caption
-{
-	text-align:left;
-}
-th
-{
-	text-align:center;
-	background-color:#999999;
-	border:2px solid #000000;
-}
-td
-{
-	text-align:left;
-	background-color:#E8E8E8;
-	border:2px solid #000000;
-}
-	</style>
+<?php include 'stylesheet.php';?>
 </head>
 
 <body>
-<table width="612" height="247" class="table">
+<table width="612" height="247" class="table table-bordered">
   <thead>
     <tr>
       <th width="94" height="71">#</th>
