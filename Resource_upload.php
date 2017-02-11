@@ -17,8 +17,10 @@
     </div>
 
     <div class="container"
-	 <form class="form-inline" method="post">
-	   
+	 <form class="form-inline" method="post" enctype="multipart/form-data">
+
+	   <p>Please choose a file to upload, then click upload.</p> 
+	   	   
 	   <label class="mr-sm-2">Grade Level</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="gradeLevel" size="1">
 	     <option value="select">Select</option>
@@ -112,13 +114,22 @@
 	     <option value="rolePlay">Role PLay</option>
 	     <option value="assessment">Assessment</option>
 	   </select></br>
-
 	   
 	   <p>
 	     <label for="searchBar">Keyword Search</label>
 	     <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python Exercises"/>
 	
 	   </p>
+
+		<input type="hidden" name="MAX_FILE_SIZE" value="50000" /> 
+
+	   <label class="btn btn-success">
+    Choose File <input type="file" name="file" hidden/>
+		</label><br>
+           
+	   <input class="btn btn-secondary" type="submit" name="upload" value="upload"> 
+	 </form> 
+</div>
 
 <?php 
         if ( isset( $_POST["upload"] ) ) { 
@@ -156,16 +167,7 @@
 
      function displayForm() { 
      ?> 
-        <p>Please choose a file to upload, then click upload.</p> 
 
-        <form method="post" enctype="multipart/form-data"> 
-            <input type="hidden" name="MAX_FILE_SIZE" value="50000" /> 
-
-            <label for="file"></label> 
-            <input type="file" name="file" id="file" value="" /> 
-
-            <p><input class="btn btn-secondary" type="submit" name="upload" value="upload" /> </p>
-        </form> 
      <?php 
      } 
 
