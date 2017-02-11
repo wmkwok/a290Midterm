@@ -50,11 +50,11 @@
     <li>
     <button type="button" class="btn btn-default" style="height:30px;width:150px" onclick = "Home()">Main</button></li>
 	 
-	<li><button type="button" class="btn btn-default" style="height:30px;width:150px" onclick = "User()">User</button></li>
+	<li><button type="button" class="btn btn-default" style="height:30px;width:150px" onclick = "User()">Users</button></li>
   	
-  	<li><button type="button" class="btn btn-default" style="height:30px;width:150px" onClick="Res()">Resource</button></li>
+  	<li><button type="button" class="btn btn-default" style="height:30px;width:150px" onClick="Res()">Resources</button></li>
   	<li><button type="button" class="btn btn-default" style="height:30px;width:150px" onClick="Search()">Search</button></li>
-  	<li><button type="button" class="btn btn-default" style="height:30px;width:150px" onClick="Administrator()">Administrator</button></li>
+  	<li><button type="button" class="btn btn-default" style="height:30px;width:150px" onClick="Administrator()">Administrators</button></li>
   	
   	</ul>
 	  </div>
