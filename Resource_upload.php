@@ -48,7 +48,7 @@
 	     <option value="project">Project</option>
 	   </select></br>
 	
-	   <label class="mr-sm-2">subject</label>
+	   <label class="mr-sm-2">Subject</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="subject" size="1">
 	     <option value="select">Select</option>
 	     <option value="math">Mathematics</option>
@@ -90,7 +90,7 @@
 	     <option value="nonProgramming">Not Programming Related</option>
 	   </select></br>
 
-	   <label class="mr-sm-2">state</label>
+	   <label class="mr-sm-2">State</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="state" size="1">
 	     <option value="select">Select</option>
 	     <option value="all">All</option>
@@ -132,7 +132,7 @@
            if ( $_FILES["photo"]["type"] != "image/jpeg" ) { 
              echo "<p>JPEG photos only, thanks!</p>"; 
            } elseif ( !move_uploaded_file( $_FILES["photo"]["tmp_name"], "photos/" . basename( $_FILES["photo"]["name"] ) ) ) { 
-             echo "<p>Sorry, there was a problem uploading that photo.</p>" . $_FILES["photo"]["error"] ; 
+             echo "<p>Sorry, there was a problem uploading that file.</p>" . $_FILES["photo"]["error"] ; 
            } else { 
              displayThanks(); 
            } 
@@ -150,19 +150,16 @@
              default: 
                $message = "Please contact your server administrator for help."; 
            } 
-           echo "<p>Sorry, there was a problem uploading that photo. $message</p>"; 
+           echo "<p>Sorry, there was a problem uploading that file. $message</p>"; 
       } 
      } 
 
      function displayForm() { 
      ?> 
-        <p>Please enter your name first and choose a file to upload, then click Send file please.</p> 
+        <p>Please choose a file to upload, then click upload.</p> 
 
-        <form action="Resource_upload.php" method="post" enctype="multipart/form-data"> 
+        <form method="post" enctype="multipart/form-data"> 
             <input type="hidden" name="MAX_FILE_SIZE" value="50000" /> 
-
-            <label for="visitorName">Your name</label> 
-            <input type="text" name="visitorName" id="visitorName" value="" /> 
 
             <label for="file"></label> 
             <input type="file" name="file" id="file" value="" /> 
