@@ -12,11 +12,11 @@
    <div class="jumbotron jumbotron-fluid">
       <div class="container">
 	<h1 class="display-3">Resource Upload</h1>
-	<p class="lead">upload your photos to the website</p>
+	<p class="lead">upload your files to the website</p>
       </div>
     </div>
 
-    <div class="container">
+    <div class="container"
 	 <form class="form-inline" method="post">
 	   
 	   <label class="mr-sm-2">Grade Level</label>
@@ -35,6 +35,9 @@
 	     <option value="iste">ISTE-Standards for Computer Science Educators</option>
 	     <option value="ap">AP CS Principles</option>
 	   </select></br>
+
+	   
+
 	 
 	   <label class="mr-sm-2">Resource Type</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="resourceType" size="1">
@@ -45,7 +48,7 @@
 	     <option value="project">Project</option>
 	   </select></br>
 	
-	   <label class="mr-sm-2">Select a subject that involves or related to this resource</label>
+	   <label class="mr-sm-2">subject</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="subject" size="1">
 	     <option value="select">Select</option>
 	     <option value="math">Mathematics</option>
@@ -58,7 +61,19 @@
 	     <option value="history">History and Geography</option>
 	   </select></br>
 
-	   <label class="mr-sm-2">Programming language used in the resource</label>
+	   <label class="mr-sm-2">Concept</label>
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="concept" size="1">
+	     <option value="select">Select</option>
+	     <option value="algorithms">Algorithms and Programs</option>
+	     <option value="computing">Computing Systems</option>
+	     <option value="data">Data and Analysis</option>
+	     <option value="impacts">Impacts of Computing</option>
+	     <option value="networks">Networks and the Internet</option>
+	   </select></br>
+
+	   
+
+	   <label class="mr-sm-2">Programming language</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="programLanguage" size="1">
 	     <option value="select">Select</option>
 	     <option value="scratch">Scratch</option>
@@ -75,14 +90,38 @@
 	     <option value="nonProgramming">Not Programming Related</option>
 	   </select></br>
 
+	   <label class="mr-sm-2">state</label>
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="state" size="1">
+	     <option value="select">Select</option>
+	     <option value="all">All</option>
+	     <option value="indiana">Indiana</option>
+	     <option value="illinois">Illinois</option>
+	     <option value="ohio">Ohio</option>
+	   </select><br>
+
+	   <label class="mr-sm-2">Instructional method</label>
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="instructionalMethod" size="1">
+	     <option value="select">Select</option>
+	     <option value="problemBased">Problem-based Learning</option>
+	     <option value="projectBased">Project-Based Learning</option>
+	     <option value="media">Media Computation</option>
+	     <option value="pair">Pair Programming</option>
+	     <option value="peer">Peer Instruction</option>
+	     <option value="lecture">Lecture</option>
+	     <option value="caseBased">Case-based Learning</option>
+	     <option value="rolePlay">Role PLay</option>
+	     <option value="assessment">Assessment</option>
+	   </select></br>
+
+	   
 	   <p>
 	     <label for="searchBar">Keyword Search</label>
 	     <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python Exercises"/>
 	
 	   </p>
-	</div>
+
 <?php 
-        if ( isset( $_POST["sendPhoto"] ) ) { 
+        if ( isset( $_POST["upload"] ) ) { 
          processForm(); 
         } else { 
          displayForm(); 
@@ -117,29 +156,29 @@
 
      function displayForm() { 
      ?> 
-        <p>Please enter your name first and choose a photo to upload, then click Send Photo please.</p> 
+        <p>Please enter your name first and choose a file to upload, then click Send file please.</p> 
 
-        <form action="photo_upload.php" method="post" enctype="multipart/form-data"> 
+        <form action="Resource_upload.php" method="post" enctype="multipart/form-data"> 
             <input type="hidden" name="MAX_FILE_SIZE" value="50000" /> 
 
             <label for="visitorName">Your name</label> 
             <input type="text" name="visitorName" id="visitorName" value="" /> 
 
-            <label for="photo">Your photo</label> 
-            <input type="file" name="photo" id="photo" value="" /> 
+            <label for="file"></label> 
+            <input type="file" name="file" id="file" value="" /> 
 
-            <input type="submit" name="sendPhoto" value="Send Photo" /> 
+            <p><input class="btn btn-secondary" type="submit" name="upload" value="upload" /> </p>
         </form> 
      <?php 
      } 
 
      function displayThanks() { 
      ?> 
-        <p>Thanks for uploading your photo
+        <p>Thanks for uploading your file
             <?php if ( $_POST["visitorName"] ) echo ", " . $_POST["visitorName"] ?>!
          </p> 
-        <p>Here's your photo:</p> 
-        <p><img src="photos/<?php echo $_FILES["photo"]["name"] ?>" alt="Photo"/></p> 
+        <p>Here's your file:</p> 
+        <p><img src="file/<?php echo $_FILES["file"]["name"] ?>" alt="file"/></p> 
      <?php 
      } 
      ?> 
