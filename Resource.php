@@ -64,8 +64,8 @@ th
       <td>level here</td>
       <td>*****</td>
       <td>
-         <img src="edit.ico" width="20" height="20" /> 
-         <img src="trash.ico" width="25" height="25" /> 
+         <img src="fonts/`edit.ico" width="20" height="20" /> 
+         <img src="fonts/trash.ico" width="25" height="25" /> 
       </td>
     </tr>
     <tr>
@@ -74,8 +74,8 @@ th
       <td>level here</td>
       <td>*****</td>
       <td>
-         <img src="edit.ico" width="20" height="20" /> 
-         <img src="trash.ico" width="25" height="25" /> 
+         <img src="fonts/edit.ico" width="20" height="20" /> 
+         <img src="fonts/trash.ico" width="25" height="25" /> 
       </td>
     </tr>
     <tr>
@@ -84,8 +84,8 @@ th
       <td>level here</td>
       <td>*****</td>
       <td>
-         <img src="edit.ico" width="20" height="20" /> 
-         <img src="trash.ico" width="25" height="25" /> 
+         <img src="fonts/edit.ico" width="20" height="20" /> 
+         <img src="fonts/trash.ico" width="25" height="25" /> 
       </td>
     </tr>
     <tr>
@@ -94,8 +94,8 @@ th
       <td>level here</td>
       <td>*****</td>
       <td>
-         <img src="edit.ico" width="20" height="20" /> 
-         <img src="trash.ico" width="25" height="25" /> 
+         <img src="fonts/edit.ico" width="20" height="20" /> 
+         <img src="fonts/trash.ico" width="25" height="25" /> 
       </td>
     </tr>
     <tr>
@@ -104,8 +104,8 @@ th
       <td>level here</td>
       <td>*****</td>
       <td>
-		 <img src="edit.ico" width="20" height="20" /> 
-         <img src="trash.ico" width="25" height="25" /> 
+		 <img src="fonts/edit.ico" width="20" height="20" /> 
+         <img src="fonts/trash.ico" width="25" height="25" /> 
       </td>
     </tr>
     <tr>
@@ -114,8 +114,8 @@ th
       <td>level here</td>
       <td>*****</td>
       <td>
-         <img src="edit.ico" width="20" height="20" /> 
-         <img src="trash.ico" width="25" height="25" /> 
+         <img src="fonts/edit.ico" width="20" height="20" /> 
+         <img src="fonts/trash.ico" width="25" height="25" /> 
           
       </td>
     </tr>

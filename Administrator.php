@@ -46,7 +46,7 @@ td
       <td height="84">1</td>
       <td>name here</td>
       <td>username here</td>
-      <td> <img src="trash.ico" width="25" height="25" /> 
+      <td> <img src="fonts/trash.ico" width="25" height="25" /> 
 </td>
 
     </tr>
@@ -54,7 +54,7 @@ td
       <td height="80">2</td>
       <td>name here</td>
       <td>username here</td>
-      <td><img src="trash.ico" width="25" height="25" /> 
+      <td><img src="fonts/trash.ico" width="25" height="25" /> 
 </td>
     </tr>
         
