@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="container"
+    <div class="container">
 	 <form class="form-inline" method="post">
 	   
 	   <label class="mr-sm-2">Grade Level</label>
@@ -35,9 +35,6 @@
 	     <option value="iste">ISTE-Standards for Computer Science Educators</option>
 	     <option value="ap">AP CS Principles</option>
 	   </select></br>
-
-	   
-
 	 
 	   <label class="mr-sm-2">Resource Type</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="resourceType" size="1">
@@ -61,8 +58,6 @@
 	     <option value="history">History and Geography</option>
 	   </select></br>
 
-	   
-
 	   <label class="mr-sm-2">Programming language used in the resource</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="programLanguage" size="1">
 	     <option value="select">Select</option>
@@ -80,13 +75,12 @@
 	     <option value="nonProgramming">Not Programming Related</option>
 	   </select></br>
 
-	   
 	   <p>
 	     <label for="searchBar">Keyword Search</label>
 	     <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python Exercises"/>
 	
 	   </p>
-
+	</div>
 <?php 
         if ( isset( $_POST["sendPhoto"] ) ) { 
          processForm(); 
