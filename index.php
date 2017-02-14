@@ -20,7 +20,7 @@
 	 <form class="form-inline" method="post">
 	   <label class="mr-sm-2">Grade Level</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="gradeLevel" size="1">
-	     <option value="select">Select</option>
+	     <option disabled selected value>Select</option>
 	     <option value="pre">Pre-school</option>
 	     <option value="elementary">Elementary School</option>
 	     <option value="middle">Middle School</option>
@@ -29,7 +29,7 @@
 	   
 	   <label class="mr-sm-2">Standard</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="standard" size="1">
-	     <option value="select">Select</option>
+	     <option disabled selected value>Select</option>
 	     <option value="csta">CSTA 2016 Standards (interim)</option>
 	     <option value="iste">ISTE-Standards for Computer Science Educators</option>
 	     <option value="ap">AP CS Principles</option>
@@ -37,7 +37,7 @@
 
 	   <label class="mr-sm-2">Grade Level for these standards</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="standardGradeLevel" size="1">
-	     <option value="select">Select</option>
+	     <option disabled selected value>Select</option>
 	     <option value="pre">Pre-school</option>
 	     <option value="elementary">Elementary School</option>
 	     <option value="middle">Middle School</option>
@@ -47,7 +47,7 @@
 
 	   <label class="mr-sm-2">Framework Concept</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="concept" size="1">
-	     <option value="select">Select</option>
+	     <option disabled selected value>Select</option>
 	     <option value="algorithms">Algorithms and Programs</option>
 	     <option value="computing">Computing Systems</option>
 	     <option value="data">Data and Analysis</option>
@@ -57,7 +57,7 @@
 	   
    	   <label class="mr-sm-2">Resource Type</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="resourceType" size="1">
-	     <option value="select">Select</option>
+	     <option disabled selected value>Select</option>
 	     <option value="assessment">Assessment</option>
 	     <option value="activity">Activity/Exercise</option>
 	     <option value="lesson">Lesson Plan</option>
@@ -66,7 +66,7 @@
 	
 	   <label class="mr-sm-2">Select a subject that involves or related to this resource</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="subject" size="1">
-	     <option value="select">Select</option>
+	     <option disabled selected value>Select</option>
 	     <option value="math">Mathematics</option>
 	     <option value="science">Science</option>
 	     <option value="languageArts">Language Arts</option>
@@ -79,7 +79,7 @@
 	
 	   <label class="mr-sm-2">Instructional method of this resource</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="instructionalMethod" size="1">
-	     <option value="select">Select</option>
+	     <option disabled selected value>Select</option>
 	     <option value="problemBased">Problem-based Learning</option>
 	     <option value="projectBased">Project-Based Learning</option>
 	     <option value="media">Media Computation</option>
@@ -93,7 +93,7 @@
 	   
    	   <label class="mr-sm-2">Programming language used in the resource</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="programLanguage" size="1">
-	     <option value="select">Select</option>
+	     <option disabled selected value>Select</option>
 	     <option value="scratch">Scratch</option>
 	     <option value="blockly">Blockly</option>
 	     <option value="python">Python</option>
@@ -110,7 +110,7 @@
 	
    	   <label class="mr-sm-2">Select the state of resource</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="state" size="1">
-	     <option value="select">Select</option>
+	     <option disabled selected value>Select</option>
 	     <option value="all">All</option>
 	     <option value="indiana">Indiana</option>
 	     <option value="illinois">Illinois</option>

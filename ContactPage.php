@@ -21,10 +21,11 @@
 	<br>
 	<div class="form-group">
 	  <label class="mr-sm-2">Please enter your email</label>
-	  <input type="email" class="form-control" name="email" value=""/></br>
+	  <input type="email" class="form-control" name="email" value="" maxlength="60"/></br>
 	  
 	  <label class="mr-sm-2">Please Specify Contact Reason</label>
 	  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="reason">
+    	<option disabled selected value>Select</option>
 	    <option value="creation">Profile Creation</option>
 	    <option value="upload">File Upload</option>
 	    <option value="login">Login</option>
