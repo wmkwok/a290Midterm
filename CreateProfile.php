@@ -15,6 +15,52 @@
   </div>
 </div>
 
+
+<?php
+   if($_SERVER["REQUEST_METHOD"] == "POST"){
+   //get all posted variables
+   $name = sanitize(($_POST["name"]));
+   $email = $_POST["email"];
+   $username = sanitize($_POST["username"]);
+   $password = sanitize($_POST["password"]);
+   $repeat = sanitize($_POST["repeatPass"]);
+   $type = sanitize($_POST["schoolType"]);
+   $level = sanitize($_POST["schoolLevel"]);
+   $state = sanitize($_POST["state"]);
+
+   //connect to mysql
+   mysql_connect("localhost", 'root', "a290php") or die(mysql_error());
+   mysql_select_db('resource') or die(mysql_error());
+   //query for username 
+   $userFind = mysql_query("SELECT * FROM users WHERE username='$username'") or die(mysql_error());
+	   //check passwords
+	   if($password != $repeat){
+		   echo "Oops! Your passwords don't match!";
+	   }
+	   //if no results come up
+	   elseif(mysql_num_rows($userFind) == 0){
+		   //do the insert magic here and give the user a chocolate chip cookie
+		   $password = password_hash($password, PASSWORD_DEFAULT);
+		   $addUser = "INSERT INTO users (username, name, email, password, schooltype, schoollevel, state) VALUES ('$username', '$name', '$email', '$password', '$type', '$level', '$state')";
+		   mysql_query($addUser) or die(mysql_error());
+		   mysql_close();
+		   echo "<div class=\"alert alert-success\"><strong>Profile Creation Success!</strong></div>";			   
+
+	   }
+	   else{
+		    echo "<div class=\"alert alert-warning\"><strong>Username already in use.</strong></div>";
+	   }
+   }
+	
+function sanitize($data) {
+  $data = trim($data); //Strip whitespace (or other characters) from the beginning and end of a string
+  $data = stripslashes($data); //Un-quotes a quoted string
+  $data = htmlspecialchars($data); //
+  if (isset($data)) 
+  { return $data; }
+}
+?>
+
 <div class="container">
   <form method="post">
     <div class="form-group">
@@ -64,52 +110,8 @@
   </form>
 </div>
 
-<?php
-   if($_SERVER["REQUEST_METHOD"] == "POST"){
-   //get all posted variables
-   $name = sanitize(($_POST["name"]));
-   $email = $_POST["email"];
-   $username = sanitize($_POST["username"]);
-   $password = sanitize($_POST["password"]);
-   $repeat = sanitize($_POST["repeatPass"]);
-   $type = sanitize($_POST["schoolType"]);
-   $level = sanitize($_POST["schoolLevel"]);
-   $state = sanitize($_POST["state"]);
 
 
-
-   //connect to mysql
-   mysql_connect("localhost", 'root', "") or die(mysql_error());
-   mysql_select_db('resource') or die(mysql_error());
-   //query for username 
-   $userFind = mysql_query("SELECT * FROM users WHERE username='$username'") or die(mysql_error());
-	   //check passwords
-	   if($password != $repeat){
-		   echo "Oops! Your passwords don't match!";
-	   }
-	   //if no results come up
-	   elseif(mysql_num_rows($userFind) == 0){
-		   //do the insert magic here and give the user a chocolate chip cookie
-		   $password = password_hash($password, PASSWORD_DEFAULT);
-		   $addUser = "INSERT INTO users (username, name, email, password, schooltype, schoollevel, state) VALUES ('$username', '$name', '$email', '$password', '$type', '$level', '$state')";
-		   mysql_query($addUser) or die(mysql_error());
-		   mysql_close();
-		   echo "Sucess! You are signed up!";			   
-
-	   }
-	   else{
-		   echo "Username already in use";
-	   }
-   }
-	
-function sanitize($data) {
-  $data = trim($data); //Strip whitespace (or other characters) from the beginning and end of a string
-  $data = stripslashes($data); //Un-quotes a quoted string
-  $data = htmlspecialchars($data); //
-  if (isset($data)) 
-  { return $data; }
-}
-?>
 	
 <?php include 'footer.php';?>
 </body>
