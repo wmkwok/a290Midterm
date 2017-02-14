@@ -8,6 +8,13 @@
 <body>
 <?php include 'header.php';?>
 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+	<h1 class="display-3">Profile Creation</h1>
+	<p class="lead">Tell us some things about yourself!</p>
+  </div>
+</div>
+
 <div class="container">
   <form method="post">
     <div class="form-group">
