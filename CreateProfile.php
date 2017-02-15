@@ -29,21 +29,21 @@
    $state = sanitize($_POST["state"]);
 
    //connect to mysql
-   mysql_connect("localhost", 'root', "a290php") or die(mysql_error());
-   mysql_select_db('resource') or die(mysql_error());
+   mysqli_connect("localhost", 'root', "a290php") or die(mysqli_error());
+   mysqli_select_db('resource') or die(mysqli_error());
    //query for username 
-   $userFind = mysql_query("SELECT * FROM users WHERE username='$username'") or die(mysql_error());
+   $userFind = mysqli_query("SELECT * FROM users WHERE username='$username'") or die(mysqli_error());
 	   //check passwords
 	   if($password != $repeat){
 		   echo "Oops! Your passwords don't match!";
 	   }
 	   //if no results come up
-	   elseif(mysql_num_rows($userFind) == 0){
+	   elseif(mysqli_num_rows($userFind) == 0){
 		   //do the insert magic here and give the user a chocolate chip cookie
 		   $password = password_hash($password, PASSWORD_DEFAULT);
 		   $addUser = "INSERT INTO users (username, name, email, password, schooltype, schoollevel, state) VALUES ('$username', '$name', '$email', '$password', '$type', '$level', '$state')";
-		   mysql_query($addUser) or die(mysql_error());
-		   mysql_close();
+		   mysqli_query($addUser) or die(mysqli_error());
+		   mysqli_close();
 		   echo "<div class=\"alert alert-success\"><strong>Profile Creation Success!</strong></div>";			   
 
 	   }
