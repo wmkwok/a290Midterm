@@ -28,14 +28,6 @@
 	     <option value="high">High School</option>
 	   </select></br>
 
-	   <label class="mr-sm-2">Standard</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="standard" size="1">
-	     <option disabled selected value>Select</option>
-	     <option value="csta">CSTA 2016 Standards (interim)</option>
-	     <option value="iste">ISTE-Standards for Computer Science Educators</option>
-	     <option value="ap">AP CS Principles</option>
-	   </select></br>
-
 	   <label class="mr-sm-2">Grade Level for these standards</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="standardGradeLevel" size="1">
 	     <option disabled selected value>Select</option>
