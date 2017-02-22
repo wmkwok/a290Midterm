@@ -18,7 +18,7 @@
         <form class="form-inline my-2 my-md-0">
            <a href="Login.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Login</a>
 		   <a href="CreateProfile.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Sign Up</a>
-            
+
         </form>
     </div>
 </nav>

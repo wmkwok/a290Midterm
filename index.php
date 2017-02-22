@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Resource</title>
-    <?php include 'stylesheet.php';?>
+    <?php include 'stylesheet.php';
+          include 'state.php'; ?>
   </head>
 
   <body>
@@ -26,7 +27,7 @@
 	     <option value="middle">Middle School</option>
 	     <option value="high">High School</option>
 	   </select></br>
-	   
+
 	   <label class="mr-sm-2">Standard</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="standard" size="1">
 	     <option disabled selected value>Select</option>
@@ -54,7 +55,7 @@
 	     <option value="impacts">Impacts of Computing</option>
 	     <option value="networks">Networks and the Internet</option>
 	   </select></br>
-	   
+
    	   <label class="mr-sm-2">Resource Type</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="resourceType" size="1">
 	     <option disabled selected value>Select</option>
@@ -63,7 +64,7 @@
 	     <option value="lesson">Lesson Plan</option>
 	     <option value="project">Project</option>
 	   </select></br>
-	
+
 	   <label class="mr-sm-2">Select a subject that involves or related to this resource</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="subject" size="1">
 	     <option disabled selected value>Select</option>
@@ -76,7 +77,7 @@
 	     <option value="Arts">Arts</option>
 	     <option value="history">History and Geography</option>
 	   </select></br>
-	
+
 	   <label class="mr-sm-2">Instructional method of this resource</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="instructionalMethod" size="1">
 	     <option disabled selected value>Select</option>
@@ -90,7 +91,7 @@
 	     <option value="rolePlay">Role PLay</option>
 	     <option value="assessment">Assessment</option>
 	   </select></br>
-	   
+
    	   <label class="mr-sm-2">Programming language used in the resource</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="programLanguage" size="1">
 	     <option disabled selected value>Select</option>
@@ -107,16 +108,14 @@
 	     <option value="scheme">Scheme</option>
 	     <option value="nonProgramming">Not Programming Related</option>
 	   </select></br>
-	
-   	   <label class="mr-sm-2">Select the state of resource</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="state" size="1">
-	     <option disabled selected value>Select</option>
-	     <option value="all">All</option>
-	     <option value="indiana">Indiana</option>
-	     <option value="illinois">Illinois</option>
-	     <option value="ohio">Ohio</option>
-	   </select><br>
-	   
+
+
+       <label class="mr-sm-2">Select the state of resource</label>
+       <select class = "custom-select mb-2 mr-sm-2 mb-sm-0" name="state"><?php echo StateDropdown("Indiana", 'name'); ?></select>
+       <br>
+
+
+
 	   <p>
 	     <label for="searchBar">Keyword Search</label>
 	     <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python Exercises"/>
