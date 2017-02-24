@@ -59,10 +59,11 @@
 	  
 	<iframe id="i" src="AdminHome.php" width="60%" height="400" class="embed-responsive-item"></iframe>
 	  </div>
-</div>
+
 
  <br/>
  <br/>
+ 
 <?php include "footer.php"?>
 </body>
 </html>

@@ -7,8 +7,8 @@
   </head>
   
   <body>
-    <?php include 'header.php';?>
-
+     <?php include 'header.php';?>
+  
     <div class="card">
       <div class="card-block">
 	<h4 class="card-title">You are free to:</h4>
@@ -33,9 +33,9 @@
 	  <li><p class="card-text">For more information about the copyright please visit <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">this site</a></p></li>
 	</ul>
       </div>
-    </div>
-
-
-    <?php include "footer.php"?>
+	</div>
+    <div id="footer"><?php include "footer.php"?></div>
+    
   </body>
+
 </html>

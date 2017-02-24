@@ -1,4 +1,7 @@
-    <footer class="footer">
+ 
+       <footer class="footer">
+         <div class="footer navbar-fixed-bottom">
+
           <div class="bg-faded">
           <ul class="nav">
   <li class="nav-item">
@@ -12,4 +15,5 @@
   </li>
 </ul>
           </div>
+		   </div>
         </footer>
