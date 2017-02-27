@@ -15,10 +15,38 @@
                 <a class="nav-link" href="Resource_upload.php">Upload</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-md-0">
+       <?php
+		session_start();
+		if(!isset($_SESSION['username'])){
+		?>
+		<html>
+        <form class="form-inline my-2 my-md-0" >
            <a href="Login.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Login</a>
 		   <a href="CreateProfile.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Sign Up</a>
+		 </form>
 
+       <?php }
+		else{
+		?>
+        <form class="form-inline my-2 my-md-0" method="post">
+           <a href="User_Profile.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">
+           <?php
+			echo $_SESSION['username'];
+			?>
+			</a>
+   
+           <button class="btn btn-outline-success my-2 my-sm-0" name = "submit" type= "submit" role="button" aria-pressed="true">Log Out
+           <?php
+			if(isset($_POST['submit'])){
+			    unset($_SESSION['username']); 
+				header('Location: login.php');
+
+			}
+			?>
+			</button>
         </form>
+        <?php }
+		?>
+		</html>
     </div>
 </nav>

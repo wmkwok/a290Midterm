@@ -32,6 +32,37 @@
 	 </div>
     </div>
 <div id="footer"><?php include "footer.php"?></div> 
+
+<?php  
+
+if(!isset($_POST['submit'])){  
+	exit();
+}
+$username = htmlspecialchars($_POST['userName']);  
+$password = strip_tags(($_POST['password']));  
+$hash = password_hash($password, PASSWORD_DEFAULT);
+		
+include('connect.php'); 
+
+mysqli_select_db($conn, "resource");
+  
+$sql = "SELECT password FROM users WHERE username='$username'";
+//echo($sql);
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+if(password_verify($password, $row['password'])){
+ 	session_start();  
+    $_SESSION['username'] = $username;  
+    header('Location: index.php');
+    exit;  
+}
+else {  
+    exit('Login Fails！Click Here <a href="javascript:history.back(-1);">Back</a>');  
+}  
+    
+
+?>  
+
 </body>
 
 </html>
