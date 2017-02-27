@@ -57,7 +57,10 @@ if(password_verify($password, $row['password'])){
     exit;  
 }
 else {  
-    exit('Login Fails！Click Here <a href="javascript:history.back(-1);">Back</a>');  
+	echo '<div style="position:absolute;top:560px;left:90px">';
+    echo '<i style="color:red;font-size:20px;">
+		 Incorrect username or password. Type the correct username and password, and try again. </i>' ;  
+	echo '</div>';
 }  
     
 
