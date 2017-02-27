@@ -43,7 +43,7 @@ $password = strip_tags(($_POST['password']));
 $hash = password_hash($password, PASSWORD_DEFAULT);
 		
 include('connect.php'); 
-
+$conn=connection();
 mysqli_select_db($conn, "resource");
   
 $sql = "SELECT password FROM users WHERE username='$username'";
