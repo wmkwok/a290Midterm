@@ -17,8 +17,8 @@
       </div>
     </div>
 
-    <div class="container"
-	 <form class="form-inline" method="post">
+    <div class="container">
+	 <form class="form-group" action="SearchResult.php" method="post" >
 	   <label class="mr-sm-2">Grade Level</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="gradeLevel" size="1">
 	     <option disabled selected value>Select</option>

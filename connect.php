@@ -1,13 +1,7 @@
 <?php
-$servername = "localhost";
-$user = "root";
-$pass = "a290php";
-
-// Create connection
-$conn = new mysqli($servername, $user, $pass);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-?>
+function connection()
+{
+    $conn = mysqli_connect("localhost", 'root', "a290php") or die(mysqli_error($conn));
+    mysqli_select_db($conn, 'resource') or die(mysqli_error($conn));
+    return $conn;
+}
