@@ -1,6 +1,6 @@
  
        <footer class="footer">
-         <div class="footer navbar-fixed-bottom">
+         <div class="navbar navbar-default navbar-fixed-bottom">
 
           <div class="bg-faded">
           <ul class="nav">

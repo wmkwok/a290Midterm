@@ -6,7 +6,7 @@
     <?php include 'stylesheet.php';
           include 'state.php'; ?>
   </head>
-<container>
+<!--<container>-->
   <body>
     <?php include 'header.php';
         ?>
@@ -128,5 +128,5 @@
 
 <?php include "footer.php"?>
 </body>
-</container>
+<!--</container>-->
 </html>

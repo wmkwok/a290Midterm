@@ -27,7 +27,8 @@
    $type = sanitize($_POST["schoolType"]);
    $level = sanitize($_POST["schoolLevel"]);
    $state = sanitize($_POST["state"]);
-
+   $bio= sanitize($_POST["bio"]);
+	   
    //connect to mysql
    $conn = mysqli_connect("localhost", 'root', "a290php") or die(mysqli_error($conn));
    mysqli_select_db($conn, 'resource') or die(mysqli_error($conn));
@@ -41,7 +42,7 @@
 	   elseif(mysqli_num_rows($userFind) == 0){
 		   //do the insert magic here and give the user a chocolate chip cookie
 		   $password = password_hash($password, PASSWORD_DEFAULT);
-		   $addUser = "INSERT INTO users (username, name, email, password, schooltype, schoollevel, state) VALUES ('$username', '$name', '$email', '$password', '$type', '$level', '$state')";
+		   $addUser = "INSERT INTO users (username, name, email, password, schooltype, schoollevel, state, bio) VALUES ('$username', '$name', '$email', '$password', '$type', '$level', '$state', '$bio')";
 		   mysqli_query($conn, $addUser) or die(mysqli_error($conn));
 		   mysqli_close($conn);
 		   echo "<div class=\"alert alert-success\"><strong>Profile Creation Success!</strong></div>";			   
@@ -95,7 +96,7 @@ function sanitize($data) {
 	<option value="middle">Middle School</option>
 	<option value="high">High School</option>
     <option value="college">College</option>
-      </select>
+      </select><br><br>
 
       <label class="mr-sm-2">State</label>
       <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="state">
@@ -106,6 +107,12 @@ function sanitize($data) {
 	<option value="other">Other</option>
       </select>
     </div>
+    
+    <div class="form-group">
+  	  <label for="bio">Bio:</label>
+  	  <textarea class="form-control" maxlength="255" rows="3" name="bio" id="bio"></textarea>
+	</div>
+    
     <input type="submit" class="btn btn-secondary" name="submit" value="Submit"/>
   </form>
 </div>
