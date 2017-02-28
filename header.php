@@ -16,37 +16,35 @@
             </li>
         </ul>
        <?php
-		session_start();
-		if(!isset($_SESSION['username'])){
-		?>
+        session_start();
+        if (!isset($_SESSION['username'])) {
+            ?>
 		<html>
         <form class="form-inline my-2 my-md-0" >
            <a href="Login.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Login</a>
 		   <a href="CreateProfile.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Sign Up</a>
 		 </form>
 
-       <?php }
-		else{
-		?>
+       <?php
+        } else {
+            ?>
         <form class="form-inline my-2 my-md-0" method="post">
            <a href="User_Profile.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">
            <?php
-			echo $_SESSION['username'];
-			?>
+            echo $_SESSION['username']; ?>
 			</a>
-   
+
            <button class="btn btn-outline-success my-2 my-sm-0" name = "submit" type= "submit" role="button" aria-pressed="true">Log Out
            <?php
-			if(isset($_POST['submit'])){
-			    unset($_SESSION['username']); 
-				header('Location: login.php');
-
-			}
-			?>
+            if (isset($_POST['submit'])) {
+                unset($_SESSION['username']);
+                header('Location: login.php');
+            } ?>
 			</button>
         </form>
-        <?php }
-		?>
+        <?php
+        }
+        ?>
 		</html>
     </div>
 </nav>
