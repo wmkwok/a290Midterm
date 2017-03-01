@@ -21,10 +21,10 @@
 	<br>
 	<div class="form-group">
 	  <label class="mr-sm-2">Please enter your email</label>
-	  <input type="email" class="form-control" name="email" value="" maxlength="60"/></br>
+	  <input type="email" class="form-control" required name="email" value="" maxlength="60"/></br>
 	  
 	  <label class="mr-sm-2">Please Specify Contact Reason</label>
-	  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="reason">
+	  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="reason">
     	<option disabled selected value>Select</option>
 	    <option value="creation">Profile Creation</option>
 	    <option value="upload">File Upload</option>
@@ -33,7 +33,7 @@
 	  </select><br><br>
 
 	  <label class="mr-sm-2">Please specify your concerns here</label>
-	  <textarea class="form-control" name="textAreaField" id="textAreaField" rows="4" cols="50"></textarea>
+	  <textarea class="form-control" required name="textAreaField" id="textAreaField" rows="4" cols="50"></textarea>
 	</div>
 	
 	<p>
@@ -43,6 +43,29 @@
       </form>
     </div>
     
+    <?php 
+if(isset($_POST['submit'])){
+        
+    $to = "qinglong@indiana.edu"; // this is your Email address
+    $from = $_POST['email']; // this is the sender's Email address
+	
+    $subject = "Form submission: " . $_POST['reason']. " problem";
+    $subject2 = "Copy of your form submission";
+    $message = $_POST['textAreaField'];
+    $message2 = "Here is a copy of your message \n\n" . $_POST['textAreaField'];
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+	echo '<div style="position:absolute;top:730px;left:90px">';
+    echo "Mail Sent. Thank you, we will contact you shortly.";
+	echo '</div>';
+    
+}
+?>
+<br/>
+<br/>
     <?php include "footer.php"?>
   </body>
 </html>
