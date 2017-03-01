@@ -1,6 +1,5 @@
  
        <footer class="footer">
-         <div class="navbar navbar-default navbar-fixed-bottom">
 
           <div class="bg-faded">
           <ul class="nav">
@@ -14,6 +13,6 @@
     <a class="nav-link" href="Admin.php">Admin Page</a>
   </li>
 </ul>
-          </div>
+         
 		   </div>
         </footer>
