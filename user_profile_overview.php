@@ -30,6 +30,7 @@ session_start();
     $oldstate = $row['state'];
 
 
+
     // this is what happen when user tyring to change their personal info
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //get all posted variables
@@ -73,11 +74,14 @@ session_start();
     echo
   "<form method = 'post' action = 'user_profile_overview.php'>
     <input type='hidden' name= 'oldusername' value='$oldusername'>
+    <input type='hidden' name= 'username' value='$username'>
     <div class=form-group 'row'>
+    <fieldset disabled>
       <label for='inputEmail3' class='col-sm-2 col-form-label'>Username</label>
       <div class='col-sm-10'>
-        <input class='form-control' name = 'username' value = '$username'>
+        <input class='form-control' value = '$username'>
       </div>
+       </fieldset>
     </div>
 
     <div class=form-group 'row'>
@@ -94,38 +98,23 @@ session_start();
       </div>
     </div>
     <!--  -->
-    <div class='form-group'>
-      <label class='mr-sm-3'>School Type</label>
-      <select class='custom-select mb-2 mr-sm-2 mb-sm-0' required name='schoolType' value = '$st'>
-    <option disabled selected value>Select</option>
-    <option value='public'>Public</option>
-    <option value='private'>Private</option>
-    <option value='charter'>Charter</option>
-    <option value='techCenter'>Technology Center</option>
-    <option value='other'>Other</option>
-      </select>
+    <div class='form-group'>";
+    // this is a much easier way to select the dropdown, the detial fcuntion is in the state.php
+    echo "<label class='mr-sm-3'>School Type</label><select class = 'custom-select mb-2 mr-sm-2 mb-sm-0' required name='schoolType'>";
 
-      <label class='mr-sm-2'>School Level</label>
-      <select class='custom-select mb-2 mr-sm-2 mb-sm-0' required name='schoolLevel'>
-    <option disabled selected value>Select</option>
-    <option value='preschool'>Pre-school</option>
-    <option value='elementary'>Elementary School</option>
-    <option value='middle'>Middle School</option>
-    <option value='high'>High School</option>
-    <option value='college'>College</option>
-      </select>
+    echo schoolTypes($st);
+      echo "</select>";
 
-      <label class='mr-sm-2'>State</label>
-      <select class='custom-select mb-2 mr-sm-2 mb-sm-0' required name='state'>
-    <option disabled selected value>Select</option>
-    <option value='indiana'>Indiana</option>
-    <option value='illinois'>Illinois</option>
-    <option value='ohio'>Ohio</option>
-    <option value='other'>Other</option>
-      </select>
-    </div>
+      echo "<label class='mr-sm-2'>School Level</label><select class = 'custom-select mb-2 mr-sm-2 mb-sm-0' required name='schoolLevel'>";
+      echo schoolLevels($sl);
+    echo "</select>";
 
-    <div class='form-group row'>
+      echo "<label class='mr-sm-2'>State</label><select class = 'custom-select mb-2 mr-sm-2 mb-sm-0' required name='state'>";
+      echo StateDropdown($oldstate, 'name');
+    echo "</select>
+  </div>
+
+  <div class='form-group row'>
       <div class='offset-sm-0 col-sm-10'>
         <button type='submit' class='btn btn-primary'>Upload information</button>
       </div>

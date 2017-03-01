@@ -40,6 +40,6 @@
 <div class="embed-responsive embed-responsive-16by9">
 <iframe id="i" src="user_profile_overview.php" width="60%" height="400" class="embed-responsive-item"></iframe>
 </div>
-<!-- <?php include "footer.php";?> -->
+<?php include "footer.php";?>
 </body>
 </html>

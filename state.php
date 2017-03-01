@@ -105,3 +105,39 @@ function check_select($i, $m, $e=true)
         echo $var;
     }
 }
+
+
+
+function schoolLevels($s)
+{
+    $schools = array(
+    array('pre', 'Pre-school'),
+    array('elementary', 'Elementary School'),
+    array('middle', 'Middle School'),
+    array('high', 'High School'),
+    );
+
+    $options = '<option value=""></option>';
+    foreach ($schools as $school) {
+        $options .= '<option value="'.$school[0].'" '. check_select($s, $school[0], false) .' >'.$school[1].'</option>'."\n";
+    }
+    echo $options;
+}
+
+
+function schoolTypes($s)
+{
+    $schools = array(
+    array('public', 'Public'),
+    array('private', 'Private'),
+    array('charter', 'Charter'),
+    array('techCenter', 'Technology Center'),
+    array('other', 'Other'),
+    );
+
+    $options = '<option value=""></option>';
+    foreach ($schools as $school) {
+        $options .= '<option value="'.$school[0].'" '. check_select($s, $school[0], false) .' >'.$school[1].'</option>'."\n";
+    }
+    echo $options;
+}
