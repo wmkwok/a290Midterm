@@ -5,20 +5,54 @@
     <title>Resource</title>
     <?php include 'stylesheet.php';
           include 'state.php'; ?>
+          <!--  -->
+
   </head>
-<!--<container>-->
   <body>
     <?php include 'header.php';
         ?>
+        <script type="text/javascript"
+         src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+         <script>
 
-    <div class="jumbotron jumbotron-fluid">
+        jQuery(document).ready(function(){
+            jQuery("#complex").hide();
+            jQuery('#adv').live('click', function(event) {
+                 jQuery("#simple, #complex").toggle();
+            });
+
+            jQuery('#sml').live('click', function(event) {
+                 jQuery("#complex, #simple").toggle();
+            });
+        });
+        </script>
+    <div  class="jumbotron jumbotron-fluid">
       <div class="container">
 	<h1 class="display-3">TSource</h1>
 	<p class="lead">A open resource website for teachers and students.</p>
       </div>
     </div>
 
-    <div class="container">
+
+
+<!-- used to show the advaned search -->
+    <div id = "simple" class="container">
+    <form class="form-group" action="SearchResult.php" method="post" >
+        <label for="searchBar">General Search</label>
+        <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python"/>
+        <br>
+         <div class="form-group">
+      <input class="btn btn-primary col-md-3" type="submit" name="submit" value="Search"/>
+
+      <input class="btn btn-secondary col-md-2" type='button' id='adv' value='Advanced Search'>
+  </div>
+  </div>
+<!-- end of simple search -->
+    </form>
+
+
+<!-- the complex search content -->
+    <div id = "complex" class="container">
 	 <form class="form-group" action="SearchResult.php" method="post" >
 	   <label class="mr-sm-2">Grade Level</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="gradeLevel" size="1">
@@ -120,10 +154,15 @@
 	   <p>
 	     <label for="searchBar">Keyword Search</label>
 	     <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python Exercises"/>
-	   <p><input class="btn btn-secondary" type="submit" name="submit" value="Search"/></p>
+         <div class="form-group">
+             <input class="btn btn-primary col-md-3" type="submit" name="submit" value="Search"/>
+             <input class="btn btn-secondary col-md-2" type='button' id='sml' value="Hide">
+         </div>
 	   </p>
 
 	 </form>
+     <!--  end of xomplex content-->
+
 </div>
 
 
