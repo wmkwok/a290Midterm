@@ -29,7 +29,7 @@ session_start();
                 $n = $row["filename"];
                 $a = $row["date"];
                 $r = $row["description"];
-                $content.= "<tr><th scope='row'>$index</th><td>$n</td><td>$a</td><td>$r</td></tr>";
+                $content.= "<tr><th scope='row'>$index</th><td><a href='download.php?fname=$n'>$n</a></td><td>$a</td><td>$r</td></tr>";
                 $index+=1;
             }
         } else {
