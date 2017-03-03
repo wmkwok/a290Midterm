@@ -3,22 +3,11 @@
 <head>
 <meta charset="utf-8">
 <title>Upload A Resource</title>
-<?php include 'stylesheet.php';
-
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-    $_SESSION['active'] = "yes";
-    session_write_close(); // optional
-    ?>
+<?php include 'stylesheet.php';?>
   </head>
 
   <body>
-
-<?php
-    include 'header.php';
-    include 'state.php';
-?>
+ <?php include 'header.php';?>
 
    <div class="jumbotron jumbotron-fluid">
       <div class="container">
@@ -104,7 +93,13 @@ if (session_status() == PHP_SESSION_NONE) {
 	   </select></br>
 
 	   <label class="mr-sm-2">State</label>
-	   <select class = "custom-select mb-2 mr-sm-2 mb-sm-0" name="state"><?php echo StateDropdown("Indiana", 'name'); ?></select><br>
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="state" size="1">
+	     <option value="select">Select</option>
+	     <option value="all">All</option>
+	     <option value="indiana">Indiana</option>
+	     <option value="illinois">Illinois</option>
+	     <option value="ohio">Ohio</option>
+	   </select><br>
 
 	   <label class="mr-sm-2">Instructional method</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="instructionalMethod" size="1">
@@ -119,6 +114,7 @@ if (session_status() == PHP_SESSION_NONE) {
 	     <option value="rolePlay">Role PLay</option>
 	     <option value="assessment">Assessment</option>
 	   </select></br>
+
 
 	   <br/>
 
@@ -187,7 +183,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
 
 ?> 
-
 <br/>
 <?php include 'footer.php';?>
 </body>
