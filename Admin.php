@@ -10,10 +10,6 @@
 			var User = document.getElementById("i"); 
 			User.src = "User.php"; 
 		} 
-		function Home(){ 
-			var Home = document.getElementById("i"); 
-			Home.src = "AdminHome.php"; 
-		} 
 		function Res(){ 
 			var Res = document.getElementById("i"); 
 			Res.src = "Resource.php"; 
@@ -46,7 +42,6 @@
     Pages
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" onClick="Home()" >Main</a>
     <a class="dropdown-item" onClick="User()" >Users</a>
     <a class="dropdown-item" onClick="Res()" >Resources</a>
     <a class="dropdown-item" onClick="Search()" >Search</a>
@@ -57,7 +52,7 @@
   
 	  <div class="embed-responsive embed-responsive-16by9">
 	  
-	<iframe id="i" src="AdminHome.php" width="60%" height="400" class="embed-responsive-item"></iframe>
+	<iframe id="i" src="Search.php" width="60%" height="400" class="embed-responsive-item"></iframe>
 	  </div>
 
 
