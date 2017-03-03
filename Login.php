@@ -63,7 +63,7 @@ if (password_verify($password, $row['password'])) {
 		 Incorrect username or password. Type the correct username and password, and try again. </i>' ;
     echo '</div>';
 }
-
+mysqli_close($conn);
 
 ?>
 
