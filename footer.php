@@ -9,9 +9,6 @@
   <li class="nav-item">
     <a class="nav-link" href="Copyright.php">Copyright</a>
   </li>
-   <li class="nav-item">
-    <a class="nav-link" href="Admin.php">Admin Page</a>
-  </li>
 </ul>
          
 		   </div>

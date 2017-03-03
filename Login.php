@@ -47,16 +47,17 @@ include('connect.php');
 $conn = connection();
 mysqli_select_db($conn, "resource");
 
-$sql = "SELECT password FROM users WHERE username='$username'";
+$sql = "SELECT * FROM users WHERE username='$username'";
 //echo($sql);
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 if (password_verify($password, $row['password'])) {
     $_SESSION['username'] = $username;
     session_write_close(); // optional
-    header('Location: index.php');
+    if($row['admin'] == 1){header('Location: Admin.php');}
+    else{header('Location: index.php');}
     exit;
-} else {
+}else {
     echo '<div style="position:absolute;top:560px;left:90px">';
     echo '<i style="color:red;font-size:20px;">
 		 Incorrect username or password. Type the correct username and password, and try again. </i>' ;
