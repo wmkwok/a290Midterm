@@ -3,11 +3,22 @@
 <head>
 <meta charset="utf-8">
 <title>Upload A Resource</title>
-<?php include 'stylesheet.php';?>
+<?php include 'stylesheet.php';
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+    $_SESSION['active'] = "yes";
+    session_write_close(); // optional
+    ?>
   </head>
 
   <body>
- <?php include 'header.php';?>
+
+<?php
+    include 'header.php';
+    include 'state.php';
+?>
 
    <div class="jumbotron jumbotron-fluid">
       <div class="container">
@@ -19,8 +30,8 @@
     <div class="container">
 	 <form class="form-group" method="post" enctype="multipart/form-data">
 
-	   <p>Please choose a file to upload, then click upload.</p> 
-	   	   
+	   <p>Please choose a file to upload, then click upload.</p>
+
 	   <label class="mr-sm-2">Grade Level</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="gradeLevel" size="1">
 	     <option value="select">Select</option>
@@ -38,9 +49,9 @@
 	     <option value="ap">AP CS Principles</option>
 	   </select></br>
 
-	   
 
-	 
+
+
 	   <label class="mr-sm-2">Resource Type</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="resourceType" size="1">
 	     <option value="select">Select</option>
@@ -49,7 +60,7 @@
 	     <option value="lesson">Lesson Plan</option>
 	     <option value="project">Project</option>
 	   </select></br>
-	
+
 	   <label class="mr-sm-2">Subject</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="subject" size="1">
 	     <option value="select">Select</option>
@@ -73,7 +84,7 @@
 	     <option value="networks">Networks and the Internet</option>
 	   </select></br>
 
-	   
+
 
 	   <label class="mr-sm-2">Programming language</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="programLanguage" size="1">
@@ -93,13 +104,7 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">State</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="state" size="1">
-	     <option value="select">Select</option>
-	     <option value="all">All</option>
-	     <option value="indiana">Indiana</option>
-	     <option value="illinois">Illinois</option>
-	     <option value="ohio">Ohio</option>
-	   </select><br>
+	   <select class = "custom-select mb-2 mr-sm-2 mb-sm-0" name="state"><?php echo StateDropdown("Indiana", 'name'); ?></select><br>
 
 	   <label class="mr-sm-2">Instructional method</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="instructionalMethod" size="1">
@@ -114,6 +119,7 @@
 	     <option value="rolePlay">Role PLay</option>
 	     <option value="assessment">Assessment</option>
 	   </select></br>
+
 	   <br/>
 
 	   <label class="btn btn-success">
@@ -181,6 +187,7 @@
 
 
 ?> 
+
 <br/>
 <?php include 'footer.php';?>
 </body>
