@@ -22,7 +22,7 @@
 	   <p>Please choose a file to upload, then click upload.</p>
 
 	   <label class="mr-sm-2">Grade Level</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="gradeLevel" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="gradeLevel" size="1">
 	     <option value="select">Select</option>
 	     <option value="pre">Pre-school</option>
 	     <option value="elementary">Elementary School</option>
@@ -31,7 +31,7 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">Standard</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="standard" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="standard" size="1">
 	     <option value="select">Select</option>
 	     <option value="csta">CSTA 2016 Standards (interim)</option>
 	     <option value="iste">ISTE-Standards for Computer Science Educators</option>
@@ -42,7 +42,7 @@
 
 
 	   <label class="mr-sm-2">Resource Type</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="resourceType" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="resourceType" size="1">
 	     <option value="select">Select</option>
 	     <option value="assessment">Assessment</option>
 	     <option value="activity">Activity/Exercise</option>
@@ -51,7 +51,7 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">Subject</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="subject" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="subject" size="1">
 	     <option value="select">Select</option>
 	     <option value="math">Mathematics</option>
 	     <option value="science">Science</option>
@@ -64,7 +64,7 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">Concept</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="concept" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="concept" size="1">
 	     <option value="select">Select</option>
 	     <option value="algorithms">Algorithms and Programs</option>
 	     <option value="computing">Computing Systems</option>
@@ -76,7 +76,7 @@
 
 
 	   <label class="mr-sm-2">Programming language</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="programLanguage" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="programLanguage" size="1">
 	     <option value="select">Select</option>
 	     <option value="scratch">Scratch</option>
 	     <option value="blockly">Blockly</option>
@@ -102,7 +102,7 @@
 	   </select><br>
 
 	   <label class="mr-sm-2">Instructional method</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="instructionalMethod" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="instructionalMethod" size="1">
 	     <option value="select">Select</option>
 	     <option value="problemBased">Problem-based Learning</option>
 	     <option value="projectBased">Project-Based Learning</option>
@@ -115,54 +115,74 @@
 	     <option value="assessment">Assessment</option>
 	   </select></br>
 
-	   <p>
-	     <label for="searchBar">Keyword Search</label>
-	     <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python Exercises"/>
 
-	   </p>
-
-
+	   <br/>
 
 	   <label class="btn btn-success">
     	Choose File <input type="file" name="userfile" hidden/>
 		</label><br>
-
+           
     <button class="btn btn-secondary" type="submit" name="upload" value="upload"> Upload </button>
-	 </form>
+	 </form> 
 </div>
 
 
-<?php
+<?php 
 
-       if (isset($_POST['upload'])) { //&& $_FILES['userfile']['size'] > 0)
-           $error = $_FILES['userfile']['error'];
-           $fileName = $_FILES['userfile']['name'];
-           $tmpName  = $_FILES['userfile']['tmp_name'];
-           $fileSize = $_FILES['userfile']['size'];
-           $fileType = $_FILES['userfile']['type'];
-        //    echo $fileName."\n";
-           echo $fileSize;
-        //    echo $fileType;
-           $fp = fopen($tmpName, 'r');
-           $content = fread($fp, $fileSize);
-           $content = addslashes($content);
-           fclose($fp);
+       if(isset($_POST['upload']) && $_FILES['userfile']['size'] > 0)
+{		
+		$error = $_FILES['userfile']['error'];
+		$fileName = $_FILES['userfile']['name'];
+		echo $fileName;
+		echo '<br/>';
+		
+		$tmpName  = $_FILES['userfile']['tmp_name'];
+		$fileSize = $_FILES['userfile']['size'];
+		$fileType = $_FILES['userfile']['type'];
+	
+		
+		echo $fileSize;
+		echo '<br/>';
+		echo $fileType;
+		echo '<br/>';
+		$gradeLevel = $_POST['gradeLevel'];
+		$standard = $_POST['standard'];
+		$resourceType = $_POST['resourceType'];
+		$subject = $_POST['subject'];
+		$concept = $_POST['concept'];
+		$programLanguage = $_POST['programLanguage'];
+		$state = $_POST['state'];
+		$instructionalMethod = $_POST['instructionalMethod'];
+		$user = $_SESSION['username'];
+		$link = '----';
+		$date = date("j, n, Y");  
+	
+		
 
-           if (!get_magic_quotes_gpc()) {
-               $fileName = addslashes($fileName);
-           }
-           echo("Success upload");
+		$fp = fopen($tmpName, 'r');
+		$content = fread($fp, $fileSize);
+		$content = addslashes($content);
+		fclose($fp);
+		
+		if(!get_magic_quotes_gpc())
+		{
+			$fileName = addslashes($fileName);
+		}
+		echo("Success upload");
+		include('connect.php');
+		$conn = connection();
+		mysqli_select_db($conn, "files");
 
-           $query = "INSERT INTO files (name, size, type, content ) ".
-                 "VALUES ('$fileName', '$fileSize', '$fileType', '$content')";
+		$addFiles = "INSERT INTO `files`(`filename`, `uploadedBy`, `date`, `rating`, `description`, `state`, `gradeLevel`, `link`, `subject`) VALUES ('$fileName','$user','$date', 5, 'good','$state','$gradeLevel','$link','$subject')";
+		
+		mysqli_query($conn, $addFiles) or die(mysqli_error($conn));
+		mysqli_close($conn);
+	
+		echo "<div class=\"alert alert-success\"><strong> '$fileName' Uploaded'</strong></div>";			   
+}		
 
-           mysql_query($query) or die('Error, query failed');
 
-           echo "<p class='style2' align='center'>File '$fileName' uploaded</p>";
-       }
-
-
-?>
+?> 
 <br/>
 <?php include 'footer.php';?>
 </body>
