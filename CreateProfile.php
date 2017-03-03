@@ -27,7 +27,7 @@
    $type = sanitize($_POST["schoolType"]);
    $level = sanitize($_POST["schoolLevel"]);
    $state = sanitize($_POST["state"]);
-   $bio= sanitize($_POST["bio"]);
+   $bio= mysql_real_escape_string(sanitize($_POST["bio"]));
 	   
    //connect to mysql
    $conn = mysqli_connect("localhost", 'root', "a290php") or die(mysqli_error($conn));
