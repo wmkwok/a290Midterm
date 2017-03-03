@@ -33,10 +33,9 @@
               } else {
                   $sql = "SELECT * FROM files WHERE filename LIKE '%$searchBar%'";
               }
-              $header = "<thead><tr><th>#</th><th>Name</th><th>Author</th><th>Rating</th></tr></thead><tbody>";
+              $header = "<thead><tr><th>#</th><th>Name</th><th>Author</th><th>Rating</th> <th>Download</th></tr></thead><tbody>";
               $content = "";
               $result = mysqli_query($conn, $sql);
-
               if (mysqli_num_rows($result) > 0) {
                   $index = 1;
                 // add up all the content in the databse
@@ -44,7 +43,8 @@
                     $n = $row["filename"];
                     $a = $row["uploadedBy"];
                     $r = $row["rating"];
-                    $content.= "<tr><th scope='row'>$index</th><td>$n</td><td>$a</td><td>$r</td></tr>";
+                    // if will go to download.php to run thr query and then download
+                    $content.= "<tr><th scope='row'>$index</th><td>$n</td><td>$a</td><td>$r</td><td><a href='download.php?fname=$n'>download</a></td></tr>";
                     $index+=1;
                 }
               } else {
@@ -58,6 +58,7 @@
               // then we are oging to check teh database
           }
            ?>
+
     </div>
 
 <div id="footer"><?php include "footer.php"?></div>  </body>

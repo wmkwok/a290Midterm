@@ -3,22 +3,11 @@
 <head>
 <meta charset="utf-8">
 <title>Upload A Resource</title>
-<?php include 'stylesheet.php';
-
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-    $_SESSION['active'] = "yes";
-    session_write_close(); // optional
-    ?>
+<?php include 'stylesheet.php';?>
   </head>
 
   <body>
-
-<?php
-    include 'header.php';
-    include 'state.php';
-?>
+ <?php include 'header.php';?>
 
    <div class="jumbotron jumbotron-fluid">
       <div class="container">
@@ -27,8 +16,8 @@ if (session_status() == PHP_SESSION_NONE) {
       </div>
     </div>
 
-    <div class="container"
-	 <form class="form-inline" method="post" enctype="multipart/form-data">
+    <div class="container">
+	 <form class="form-group" method="post" enctype="multipart/form-data">
 
 	   <p>Please choose a file to upload, then click upload.</p>
 
@@ -104,7 +93,13 @@ if (session_status() == PHP_SESSION_NONE) {
 	   </select></br>
 
 	   <label class="mr-sm-2">State</label>
-	   <select class = "custom-select mb-2 mr-sm-2 mb-sm-0" name="state"><?php echo StateDropdown("Indiana", 'name'); ?></select><br>
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="state" size="1">
+	     <option value="select">Select</option>
+	     <option value="all">All</option>
+	     <option value="indiana">Indiana</option>
+	     <option value="illinois">Illinois</option>
+	     <option value="ohio">Ohio</option>
+	   </select><br>
 
 	   <label class="mr-sm-2">Instructional method</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="instructionalMethod" size="1">
@@ -120,73 +115,54 @@ if (session_status() == PHP_SESSION_NONE) {
 	     <option value="assessment">Assessment</option>
 	   </select></br>
 
-		<input type="hidden" name="MAX_FILE_SIZE" value="50000" />
-        <br>
-	   <label class="btn btn-secondary col-md-2">
-    Choose File <input type="file" name="file" hidden/>
+	   <p>
+	     <label for="searchBar">Keyword Search</label>
+	     <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python Exercises"/>
+
+	   </p>
+
+
+
+	   <label class="btn btn-success">
+    	Choose File <input type="file" name="userfile" hidden/>
 		</label><br>
 
-	   <input  class="btn btn-primary col-md-2" type="submit" name="upload" value="upload">
+    <button class="btn btn-secondary" type="submit" name="upload" value="upload"> Upload </button>
 	 </form>
 </div>
 
+
 <?php
-        if (isset($_POST["upload"])) {
-            processForm();
-        } else {
-            displayForm();
-        }
 
-        function processForm()
-        {
-            if (isset($_FILES["photo"]) and $_FILES["photo"]["error"] == UPLOAD_ERR_OK) {
-                if ($_FILES["photo"]["type"] != "image/jpeg") {
-                    echo "<p>JPEG photos only, thanks!</p>";
-                } elseif (!move_uploaded_file($_FILES["photo"]["tmp_name"], "photos/" . basename($_FILES["photo"]["name"]))) {
-                    echo "<p>Sorry, there was a problem uploading that file.</p>" . $_FILES["photo"]["error"] ;
-                } else {
-                    displayThanks();
-                }
-            } else {
-                switch ($_FILES["photo"]["error"]) {
-             case UPLOAD_ERR_INI_SIZE:
-               $message = "The photo is larger than the server allows.";
-               break;
-             case UPLOAD_ERR_FORM_SIZE:
-               $message = "The photo is larger than the script allows.";
-               break;
-             case UPLOAD_ERR_NO_FILE:
-               $message = "No file was uploaded. Make sure you choose a file to upload.";
-               break;
-             default:
-               $message = "Please contact your server administrator for help.";
+       if (isset($_POST['upload'])) { //&& $_FILES['userfile']['size'] > 0)
+           $error = $_FILES['userfile']['error'];
+           $fileName = $_FILES['userfile']['name'];
+           $tmpName  = $_FILES['userfile']['tmp_name'];
+           $fileSize = $_FILES['userfile']['size'];
+           $fileType = $_FILES['userfile']['type'];
+        //    echo $fileName."\n";
+           echo $fileSize;
+        //    echo $fileType;
+           $fp = fopen($tmpName, 'r');
+           $content = fread($fp, $fileSize);
+           $content = addslashes($content);
+           fclose($fp);
+
+           if (!get_magic_quotes_gpc()) {
+               $fileName = addslashes($fileName);
            }
-                echo "<p>Sorry, there was a problem uploading that file. $message</p>";
-            }
-        }
+           echo("Success upload");
 
-     function displayForm()
-     {
-         ?>
+           $query = "INSERT INTO files (name, size, type, content ) ".
+                 "VALUES ('$fileName', '$fileSize', '$fileType', '$content')";
 
-     <?php
+           mysql_query($query) or die('Error, query failed');
 
-     }
+           echo "<p class='style2' align='center'>File '$fileName' uploaded</p>";
+       }
 
-     function displayThanks()
-     {
-         ?>
-        <p>Thanks for uploading your file
-            <?php if ($_POST["visitorName"]) {
-             echo ", " . $_POST["visitorName"];
-         } ?>!
-         </p>
-        <p>Here's your file:</p>
-        <p><img src="file/<?php echo $_FILES["file"]["name"] ?>" alt="file"/></p>
-     <?php
 
-     }
-     ?>
+?>
 <br/>
 <?php include 'footer.php';?>
 </body>
