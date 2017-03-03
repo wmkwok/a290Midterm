@@ -34,9 +34,9 @@
             echo $_SESSION['username']; ?>
 			</a>
 
-           <button class="btn btn-outline-success my-2 my-sm-0" name = "submit" type= "submit" role="button" aria-pressed="true">Log Out
+           <button class="btn btn-outline-success my-2 my-sm-0" name = "logout" type= "submit" role="button" aria-pressed="true">Log Out
            <?php
-            if (isset($_POST['submit'])) {
+            if (isset($_POST['logout'])) {
                 unset($_SESSION['username']);
                 header('Location: login.php');
             } ?>

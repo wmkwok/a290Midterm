@@ -37,7 +37,10 @@
 
 <!-- used to show the advaned search -->
     <div id = "simple" class="container">
+    
     <form class="form-group" action="SearchResult.php" method="post" >
+          <div style="height:300px;">
+
         <label for="searchBar">General Search</label>
         <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python"/>
         <br>
@@ -47,6 +50,7 @@
       <input class="btn btn-secondary col-md-2" type='button' id='adv' value='Advanced Search'>
   </div>
   </div>
+	   </div>
 <!-- end of simple search -->
     </form>
 
@@ -167,6 +171,7 @@
 
 
 </body>
-<div id="footer"><?php include "footer.php"?></div>
+
+<?php include "footer.php"?>
 <!--</container>-->
 </html>

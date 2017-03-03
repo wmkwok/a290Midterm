@@ -6,6 +6,10 @@
    bottom:0;
    width:100%;
 }
+.mr-sm-2 {
+    margin-right: .5rem!important;
+	margin-top: 10px;
+}
 </style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
