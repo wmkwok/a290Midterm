@@ -19,67 +19,30 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>tile here</td>
-      <td>level here</td>
-      <td>*****</td>
-      <td>
-         <img src="fonts/edit.ico" width="20" height="20" /> 
-         <img src="fonts/trash.ico" width="25" height="25" /> 
-      </td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>tile here</td>
-      <td>level here</td>
-      <td>*****</td>
-      <td>
-         <img src="fonts/edit.ico" width="20" height="20" /> 
-         <img src="fonts/trash.ico" width="25" height="25" /> 
-      </td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>tile here</td>
-      <td>level here</td>
-      <td>*****</td>
-      <td>
-         <img src="fonts/edit.ico" width="20" height="20" /> 
-         <img src="fonts/trash.ico" width="25" height="25" /> 
-      </td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>tile here</td>
-      <td>level here</td>
-      <td>*****</td>
-      <td>
-         <img src="fonts/edit.ico" width="20" height="20" /> 
-         <img src="fonts/trash.ico" width="25" height="25" /> 
-      </td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>tile here</td>
-      <td>level here</td>
-      <td>*****</td>
-      <td>
-		 <img src="fonts/edit.ico" width="20" height="20" /> 
-         <img src="fonts/trash.ico" width="25" height="25" /> 
-      </td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>tile here</td>
-      <td>level here</td>
-      <td>*****</td>
-      <td>
-         <img src="fonts/edit.ico" width="20" height="20" /> 
-         <img src="fonts/trash.ico" width="25" height="25" /> 
-          
-      </td>
-    </tr>
+
+ <?php
+       require_once('connect.php');
+       $conn = connection();
+       mysqli_select_db($conn, "resource");
+       $listSources="SELECT filename, gradeLevel, rating FROM files";
+
+       $listSources=mysqli_query($conn, $listSources);
+       if(mysqli_num_rows($listSources)){
+         $counter=1;
+         $options="<td><img src=\"fonts/edit.ico\" width=\"20\" height=\"20\" /><img src=\"fonts/trash.ico\" width=\"25\" height=\"25\" /></td>";
+         while($row=mysqli_fetch_assoc($listSources)){
+            echo("<tr>");
+            echo("<td>{$counter}</td>");
+            echo("<td>{$row["filename"]}</td>");
+            echo("<td>{$row["gradeLevel"]}</td>");
+            echo("<td>{$row["rating"]}</td>");
+            echo($options);
+            echo("</tr>");
+            $counter+=1;
+         }
+    }
+       mysqli_close($conn);
+       ?>
   </tbody>
 </table>
 	</div>
