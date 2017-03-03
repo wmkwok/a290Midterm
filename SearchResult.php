@@ -14,37 +14,42 @@
           if (isset($_POST["submit"])) {
               // getting the content from the form
 
-              $gradeLevel = $_POST["gradeLevel"];
-              $standard = $_POST["standard"];
-              $standardGradeLevel = $_POST["standardGradeLevel"];
-              $concept = $_POST["concept"];
-              $resourceType = $_POST["resourceType"];
-              $subject = $_POST["subject"];
-              $instructionalMethod = $_POST["instructionalMethod"];
-              $programLanguage = $_POST["programLanguage"];
-              $state = $_POST["state"];
+            //
+              $type = $_POST["searchc"];
               $searchBar = $_POST["searchBar"];
               $conn = connection();
 
-              $sql = "SELECT * FROM files WHERE gradeLevel = '$standardGradeLevel' AND subject = '$subject'";
-
+              if ($type == "complex") {
+                  $gradeLevel = $_POST["gradeLevel"];
+                  $standard = $_POST["standard"];
+                  $standardGradeLevel = $_POST["standardGradeLevel"];
+                  $concept = $_POST["concept"];
+                  $resourceType = $_POST["resourceType"];
+                  $subject = $_POST["subject"];
+                  $instructionalMethod = $_POST["instructionalMethod"];
+                  $programLanguage = $_POST["programLanguage"];
+                  $state = $_POST["state"];
+                  $sql = "SELECT * FROM files WHERE gradeLevel = '$standardGradeLevel' AND subject = '$subject'";
+              } else {
+                  $sql = "SELECT * FROM files WHERE filename LIKE '%$searchBar%'";
+              }
               $header = "<thead><tr><th>#</th><th>Name</th><th>Author</th><th>Rating</th></tr></thead><tbody>";
               $content = "";
               $result = mysqli_query($conn, $sql);
 
               if (mysqli_num_rows($result) > 0) {
                   $index = 1;
-                  echo "Ifound something";
-                  // add up all the content in the databse
-                  while ($row = mysqli_fetch_assoc($result)) {
-                      $n = $row["filename"];
-                      $a = $row["uploadedBy"];
-                      $r = $row["rating"];
-                      $content.= "<tr><th scope='row'>$index</th><td>$n</td><td>$a</td><td>$r</td></tr>";
-                      $index+=1;
-                  }
+                // add up all the content in the databse
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $n = $row["filename"];
+                    $a = $row["uploadedBy"];
+                    $r = $row["rating"];
+                    $content.= "<tr><th scope='row'>$index</th><td>$n</td><td>$a</td><td>$r</td></tr>";
+                    $index+=1;
+                }
               } else {
-                  echo "nothing found";
+                  // this need to change
+                echo "<h5 class='bg-warning'>  nothing found</h3>";
               }
               // show the content to the user
               $header.=$content;

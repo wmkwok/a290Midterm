@@ -26,6 +26,7 @@
 		 </form>
 
        <?php
+
         } else {
             ?>
         <form class="form-inline my-2 my-md-0" method="post">
@@ -36,6 +37,8 @@
 
            <button class="btn btn-outline-success my-2 my-sm-0" name = "logout" type= "submit" role="button" aria-pressed="true">Log Out
            <?php
+
+        //    if user tyring to logout
             if (isset($_POST['logout'])) {
                 unset($_SESSION['username']);
                 header('Location: login.php');
@@ -43,6 +46,7 @@
 			</button>
         </form>
         <?php
+
         }
         ?>
 		</html>
