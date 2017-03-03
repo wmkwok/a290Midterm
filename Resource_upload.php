@@ -129,6 +129,7 @@
 
        if(isset($_POST['upload']) && $_FILES['userfile']['size'] > 0)
 {		
+	
 		$error = $_FILES['userfile']['error'];
 		$fileName = $_FILES['userfile']['name'];
 		echo $fileName;
@@ -139,6 +140,9 @@
 		$fileType = $_FILES['userfile']['type'];
 	
 		
+		$target_dir = "files/";
+ 		$target_file = $target_dir . basename($fileName);
+	
 		echo $fileSize;
 		echo '<br/>';
 		echo $fileType;
@@ -175,8 +179,16 @@
 		
 		mysqli_query($conn, $addFiles) or die(mysqli_error($conn));
 		mysqli_close($conn);
+		echo"shabi";
 	
-		echo "<div class=\"alert alert-success\"><strong> '$fileName' Uploaded'</strong></div>";			   
+		if (move_uploaded_file($tmpName, $target_file)) {
+        echo "<div class=\"alert alert-success\"><strong> '$fileName' Uploaded'</strong></div>";
+    	} else {
+        echo "Sorry, there was an error uploading your file.";
+    	}
+
+	
+		//echo "<div class=\"alert alert-success\"><strong> '$fileName' Uploaded'</strong></div>";			   
 }		
 
 
