@@ -4,12 +4,20 @@
     <meta charset="utf-8">
     <title>Resource</title>
     <?php include 'stylesheet.php';
-          include 'state.php'; ?>
+          include 'state.php';
+
+          if (session_status() == PHP_SESSION_NONE) {
+              session_start();
+              $_SESSION['active'] = "nope";
+              session_write_close(); // optional
+          }
+          ?>
           <!--  -->
 
   </head>
   <body>
-    <?php include 'header.php';
+    <?php
+        include 'header.php';
         ?>
         <script type="text/javascript"
          src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -37,7 +45,7 @@
 
 <!-- used to show the advaned search -->
     <div id = "simple" class="container">
-    
+
     <form class="form-group" action="SearchResult.php" method="post" >
           <div style="height:300px;">
 
@@ -174,6 +182,7 @@
 
 </body>
 
+
 <?php include "footer.php"?>
-<!--</container>-->
+
 </html>

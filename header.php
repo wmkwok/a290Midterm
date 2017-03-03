@@ -8,12 +8,25 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Resource_upload.php">Upload</a>
-            </li>
+            <!-- this line helps user to high light which seesion tehyare on -->
+            <?php
+            if (session_status() == PHP_SESSION_ACTIVE) {
+                echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item'><a class='nav-link' href='Resource_upload.php'>Upload</a></li>";
+            } else {
+                if (isset($_SESSION['active'])) {
+                    if ($_SESSION["active"] == 'yes') {
+                        echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item active'><a class='nav-link' href='Resource_upload.php'>Upload</a></li>";
+                    } else {
+                        echo "<li class='nav-item active'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item'><a class='nav-link' href='Resource_upload.php'>Upload</a></li>";
+            // }
+                    }
+                } else {
+                    echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item'><a class='nav-link' href='Resource_upload.php'>Upload</a></li>";
+                }
+            }
+
+             ?>
+
         </ul>
        <?php
         session_start();
