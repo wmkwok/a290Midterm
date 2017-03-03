@@ -40,6 +40,7 @@
     <form class="form-group" action="SearchResult.php" method="post" >
         <label for="searchBar">General Search</label>
         <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python"/>
+        <input type="hidden" name="searchc" value="simple">
         <br>
          <div class="form-group">
       <input class="btn btn-primary col-md-3" type="submit" name="submit" value="Search"/>
@@ -54,6 +55,7 @@
 <!-- the complex search content -->
     <div id = "complex" class="container">
 	 <form class="form-group" action="SearchResult.php" method="post" >
+           <input type="hidden" name="searchc" value="complex">
 	   <label class="mr-sm-2">Grade Level</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="gradeLevel" size="1">
 	     <option disabled selected value>Select</option>
@@ -167,6 +169,6 @@
 
 
 </body>
-<div id="footer"><?php include "footer.php"?></div>
+<?php include "footer.php"?>
 <!--</container>-->
 </html>
