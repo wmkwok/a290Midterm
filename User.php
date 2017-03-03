@@ -38,6 +38,7 @@
             $counter+=1;
          }
     }
+       mysqli_close($conn);
        ?>
 
   </tbody>
