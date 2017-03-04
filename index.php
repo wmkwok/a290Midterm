@@ -10,6 +10,9 @@
               session_start();
               $_SESSION['active'] = "nope";
               session_write_close(); // optional
+          } else {
+              $_SESSION['active'] = "nope";
+              session_write_close(); // optional
           }
           ?>
           <!--  -->
