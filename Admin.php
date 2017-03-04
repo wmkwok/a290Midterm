@@ -1,4 +1,14 @@
 <!doctype html>
+<?php
+   require_once('connect.php');
+   $conn=connection();
+   mysqli_select_db($conn, "resource");
+   $listUsers="SELECT admin FROM users WHERE username=$_SESSION['username']";
+   $listUsers=mysqli_query($conn, $listUsers);
+   if(mysqli_num_rows($listUsers) >0){
+      if($row['admin'] = 0){}
+}
+?>
 <html>
   <head>
     <meta charset="utf-8">
