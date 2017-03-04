@@ -1,43 +1,34 @@
 <!doctype html>
-<?php
-   require_once('connect.php');
-   $conn=connection();
-   mysqli_select_db($conn, "resource");
-   $listUsers="SELECT admin FROM users WHERE username=$_SESSION['username']";
-   $listUsers=mysqli_query($conn, $listUsers);
-   if(mysqli_num_rows($listUsers) >0){
-      if($row['admin'] = 0){}
-}
-?>
 <html>
   <head>
     <meta charset="utf-8">
     <title>Admin</title>
+
+    <!-- Include stylesheet and define file references -->
     <?php include 'stylesheet.php';?>
-    
-    <script type="text/javascript"> 
-		function User(){ 
-			var User = document.getElementById("i"); 
-			User.src = "User.php"; 
-		} 
-		function Res(){ 
-			var Res = document.getElementById("i"); 
-			Res.src = "Resource.php"; 
-		} 
-		function Search(){ 
-			var Search = document.getElementById("i"); 
-			Search.src = "Search.php"; 
-		} 
-		function Administrator(){ 
-			var ad = document.getElementById("i"); 
-			ad.src = "Administrator.php"; 
-		} 
+    <script type="text/javascript">
+		function User(){
+			var User = document.getElementById("i");
+			User.src = "user.php";
+		}
+		function Res(){
+			var Res = document.getElementById("i");
+			Res.src = "resource.php";
+		}
+		function Search(){
+			var Search = document.getElementById("i");
+			Search.src = "search.php";
+		}
+		function Administrator(){
+			var ad = document.getElementById("i");
+			ad.src = "administrator.php";
+		}
 	  </script>
-	  
+
   </head>
 
   <body>
-   
+
   <?php include 'header.php';?>
 
     <div class="jumbotron jumbotron-fluid">
@@ -45,8 +36,8 @@
 	<h1 class="display-5">Admin</h1>
       </div>
     </div>
-    
-    
+
+
     <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Pages
@@ -56,19 +47,19 @@
     <a class="dropdown-item" onClick="Res()" >Resources</a>
     <a class="dropdown-item" onClick="Search()" >Search</a>
     <a class="dropdown-item" onClick="Administrator()" >Administrators</a>
-    
+
   </div>
 </div>
-  
+
 	  <div class="embed-responsive embed-responsive-16by9">
-	  
-	<iframe id="i" src="Search.php" width="60%" height="400" class="embed-responsive-item"></iframe>
+
+	<iframe id="i" src="search.php" width="60%" height="400" class="embed-responsive-item"></iframe>
 	  </div>
 
 
  <br/>
  <br/>
- 
+
 <?php include "footer.php"?>
 </body>
 </html>

@@ -1,5 +1,5 @@
 
-
+<!-- adds navigation bar to all pages -->
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,17 +11,17 @@
             <!-- this line helps user to high light which seesion tehyare on -->
             <?php
             if (session_status() == PHP_SESSION_ACTIVE) {
-                echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item'><a class='nav-link' href='Resource_upload.php'>Upload</a></li>";
+                echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item'><a class='nav-link' href='resourceupload.php'>Upload</a></li>";
             } else {
                 if (isset($_SESSION['active'])) {
                     if ($_SESSION["active"] == 'yes') {
-                        echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item active'><a class='nav-link' href='Resource_upload.php'>Upload</a></li>";
+                        echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item active'><a class='nav-link' href='resourceupload.php'>Upload</a></li>";
                     } else {
-                        echo "<li class='nav-item active'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item'><a class='nav-link' href='Resource_upload.php'>Upload</a></li>";
+                        echo "<li class='nav-item active'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item'><a class='nav-link' href='resourceupload.php'>Upload</a></li>";
             // }
                     }
                 } else {
-                    echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item'><a class='nav-link' href='Resource_upload.php'>Upload</a></li>";
+                    echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item'><a class='nav-link' href='resourceupload.php'>Upload</a></li>";
                 }
             }
 
@@ -34,8 +34,8 @@
             ?>
 		<html>
         <form class="form-inline my-2 my-md-0" >
-           <a href="Login.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Login</a>
-		   <a href="CreateProfile.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Sign Up</a>
+           <a href="login.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Login</a>
+		   <a href="createprofile.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Sign Up</a>
 		 </form>
 
        <?php
@@ -43,7 +43,7 @@
         } else {
             ?>
         <form class="form-inline my-2 my-md-0" method="post">
-           <a href="User_Profile.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">
+           <a href="userprofile.php" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">
            <?php
             echo $_SESSION['username']; ?>
 			</a>

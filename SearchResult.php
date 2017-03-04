@@ -13,12 +13,11 @@
 
           if (isset($_POST["submit"])) {
               // getting the content from the form
-
-            //
               $type = $_POST["searchc"];
               $searchBar = $_POST["searchBar"];
               $conn = connection();
 
+              //if more search options, get the inputs
               if ($type == "complex") {
                   $gradeLevel = $_POST["gradeLevel"];
                   $standard = $_POST["standard"];
@@ -31,6 +30,7 @@
                   $state = $_POST["state"];
                   $sql = "SELECT * FROM files WHERE gradeLevel = '$standardGradeLevel' AND subject = '$subject'";
               } else {
+                  //normal search
                   $sql = "SELECT * FROM files WHERE filename LIKE '%$searchBar%'";
               }
               $header = "<thead><tr><th>#</th><th>Name</th><th>Author</th><th>Rating</th> <th>Download</th></tr></thead><tbody>";

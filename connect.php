@@ -1,4 +1,5 @@
 <?php
+//function to establish connection to databse
 function connection()
 {
     $conn = mysqli_connect("localhost", 'root', "a290php") or die(mysqli_error($conn));

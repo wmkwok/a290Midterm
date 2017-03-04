@@ -1,6 +1,3 @@
-<?php
-// session_start();
-?>
 <!doctype html>
 <html>
   <head>
@@ -8,14 +5,15 @@
     <title>Admin</title>
     <?php include 'stylesheet.php';?>
 
+    <!-- look at uploaded resources or profile information to change -->
     <script type="text/javascript">
 		function userprofile(){
 			var User = document.getElementById("i");
-			User.src = "user_profile_overview.php";
+			User.src = "userprofileoverview.php";
 		}
 		function rescources(){
 			var Res = document.getElementById("i");
-			Res.src = "user_resources.php";
+			Res.src = "userresources.php";
         }
 	  </script>
     <link rel="stylesheet" type="text/css" class="ui" href="css/semantic.min.css">
@@ -38,7 +36,7 @@
 // include "user_profile_overview.php";
 ?>
 <div class="embed-responsive embed-responsive-16by9">
-<iframe id="i" src="user_profile_overview.php" width="60%" height="400" class="embed-responsive-item"></iframe>
+<iframe id="i" src="userprofileoverview.php" width="60%" height="400" class="embed-responsive-item"></iframe>
 </div>
 <?php include "footer.php";?>
 </body>

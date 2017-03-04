@@ -5,10 +5,10 @@
     <title>CopyRight Page</title>
     <?php include 'stylesheet.php';?>
   </head>
-  
+  <!-- Just description of copyright as well as reference to link -->
   <body>
      <?php include 'header.php';?>
-  
+
     <div class="card">
       <div class="card-block">
 	<h4 class="card-title">You are free to:</h4>
@@ -19,8 +19,8 @@
 	    <li>The licensor cannot revoke these freedoms as long as you follow the license terms</li>
 	  </ul>
 	</p>
-      </div>	
-      
+      </div>
+
     </div>
 
     <div class="card">
@@ -35,7 +35,7 @@
       </div>
 	</div>
     <div id="footer"><?php include "footer.php"?></div>
-    
+
   </body>
 
 </html>

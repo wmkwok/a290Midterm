@@ -1,6 +1,5 @@
-
+<!-- stylesheet to support all the design theme -->
 <style>
-
 #footer {
    position:fixed;
    bottom:0;

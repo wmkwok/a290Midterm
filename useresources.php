@@ -13,6 +13,7 @@ session_start();
 <table class="table table-bordered">
 <div class="container">
     <?php
+		//connect to database
     include "connect.php";
     $conn = connection();
     $name = $_SESSION["username"];
@@ -20,8 +21,9 @@ session_start();
 
     $header = "<thead><tr><th>#</th><th>Name</th><th>Date</th><th>description</th></tr></thead><tbody>";
     $content = "";
+		//get all files by this uploader
     $result = mysqli_query($conn, $sql);
-
+			//populate the table of files
         if (mysqli_num_rows($result) > 0) {
             $index = 1;
             // add up all the content in the databse

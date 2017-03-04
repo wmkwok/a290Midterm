@@ -134,21 +134,23 @@
 
 
 <?php
-
+      //upload starts
        if (isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
            $error = $_FILES['userfile']['error'];
            $fileName = $_FILES['userfile']['name'];
            echo $fileName;
            echo '<br/>';
 
+           //information of file
            $tmpName  = $_FILES['userfile']['tmp_name'];
            $fileSize = $_FILES['userfile']['size'];
            $fileType = $_FILES['userfile']['type'];
 
-
+          //place to store the files, always in files/
            $target_dir = "files/";
            $target_file = $target_dir . basename($fileName);
 
+           //other information about the file
            echo $fileSize;
            echo '<br/>';
            echo $fileType;
@@ -165,8 +167,7 @@
            $link = '----';
            $date = date("j, n, Y");
 
-
-
+           //take contents
            $fp = fopen($tmpName, 'r');
            $content = fread($fp, $fileSize);
            $content = addslashes($content);
@@ -175,25 +176,22 @@
            if (!get_magic_quotes_gpc()) {
                $fileName = addslashes($fileName);
            }
+          //connection to database
            echo("Success upload");
            include('connect.php');
            $conn = connection();
            mysqli_select_db($conn, "files");
 
            $addFiles = "INSERT INTO `files`(`filename`, `uploadedBy`, `date`, `rating`, `description`, `state`, `gradeLevel`, `link`, `subject`) VALUES ('$fileName','$user','$date', 5, 'good','$state','$gradeLevel','$link','$subject')";
-
+           //add the information to the database and then close the database connection
            mysqli_query($conn, $addFiles) or die(mysqli_error($conn));
            mysqli_close($conn);
-           echo"shabi";
 
            if (move_uploaded_file($tmpName, $target_file)) {
                echo "<div class=\"alert alert-success\"><strong> '$fileName' Uploaded'</strong></div>";
            } else {
                echo "Sorry, there was an error uploading your file.";
            }
-
-
-        //echo "<div class=\"alert alert-success\"><strong> '$fileName' Uploaded'</strong></div>";
        }
 
 

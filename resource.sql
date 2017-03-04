@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 04, 2017 at 03:32 PM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.5.38
+-- Host: 127.0.0.1
+-- Generation Time: Mar 04, 2017 at 04:52 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -44,7 +44,7 @@ CREATE TABLE `files` (
 
 INSERT INTO `files` (`filename`, `uploadedBy`, `date`, `rating`, `description`, `state`, `gradeLevel`, `link`, `subject`) VALUES
 ('Assignment1.docx', 'testing', '3, 3, 2017', 5, 'good', 'indiana', 'elementary', '----', 'languageArts'),
-('test.pdf', 'wmkwok', 'today', 5, 'wendy''s test file', 'Indiana', 'College', '#', 'Math');
+('test.pdf', 'wmkwok', 'today', 5, 'wendy\'s test file', 'Indiana', 'College', '#', 'Math');
 
 -- --------------------------------------------------------
 
@@ -88,8 +88,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`username`, `name`, `email`, `password`, `schooltype`, `schoollevel`, `state`, `bio`, `admin`) VALUES
-('testing', 'test', 'testing@gmail.com', '$2y$10$bHnDKRdmB2Mrpf4adXabl.69MM7fg40gDSLN9RN3hytrntGV5rXdu', 'public', 'elementary', 'illinois', 'dsfsfsdfs', 1),
-('wendyk', 'wendy', 'wendyk@gmail.com', '$2y$10$OIieW02tABwpntznsAZ/HeMDHXPIiSzgii/p3dSOxBKtOVSILg8Na', 'other', 'college', 'indiana', 'I''m wendy.', 0),
+('testing', 'test', 'testing@gmail.com', '$2y$10$bHnDKRdmB2Mrpf4adXabl.69MM7fg40gDSLN9RN3hytrntGV5rXdu', 'public', 'elementary', 'Indiana', 'dsfsfsdfs', 1),
+('wendyk', 'wendy', 'wendyk@gmail.com', '$2y$10$OIieW02tABwpntznsAZ/HeMDHXPIiSzgii/p3dSOxBKtOVSILg8Na', 'other', 'college', 'indiana', 'I\'m wendy.', 0),
 ('wmkwok', 'wendy kwok', 'wmkwok95@gmail.com', '$2y$10$3wN3WvzqjsBiQdnR4FwfteJlrbvqLFBBKojIooWUVUY5QzYet..4W', 'other', 'college', 'indiana', '', 0);
 
 --
@@ -124,7 +124,7 @@ ALTER TABLE `users`
 -- Constraints for table `files`
 --
 ALTER TABLE `files`
-  ADD CONSTRAINT `files_ibfk_1` FOREIGN KEY (`uploadedBy`) REFERENCES `users` (`username`);
+  ADD CONSTRAINT `uploadname` FOREIGN KEY (`uploadedBy`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tags`

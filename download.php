@@ -7,7 +7,7 @@ if (isset($_GET['fname'])) {
 
     $dir = "files/";
     $file = $dir .$_GET['fname'];
-
+    //if file exist then start the data for download
     if (file_exists($file)) {
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');

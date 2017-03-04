@@ -15,9 +15,11 @@ session_start();
 <div width='554' height='448' class='container'>
 <!-- <table width='554' height='448' class='table table-bordered'> -->
 <?php
+		//create connection
     $conn = connection();
     $oldusername = $_SESSION['username'];
 
+		//change things
     $sql = "SELECT * FROM users WHERE username = '$oldusername'";
 
     $result = mysqli_query($conn, $sql);
@@ -55,7 +57,7 @@ session_start();
             $_SESSION['username'] = $username;
             $_SESSION['update']   = "a";
             session_write_close();
-            echo "<script type='text/javascript'>window.location.href='user_profile_overview.php'</script>";
+            echo "<script type='text/javascript'>window.location.href='userprofileoverview.php'</script>";
             exit;
         } else {
             echo "<div class=\"alert alert-warning\"><strong>Username already in use.</strong></div>";
@@ -72,7 +74,7 @@ session_start();
         }
       }
     echo
-  "<form method = 'post' action = 'user_profile_overview.php'>
+  "<form method = 'post' action = 'userprofileoverview.php'>
     <input type='hidden' name= 'oldusername' value='$oldusername'>
     <input type='hidden' name= 'username' value='$username'>
     <div class=form-group 'row'>

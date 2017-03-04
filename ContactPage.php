@@ -8,21 +8,21 @@
 
   <body>
     <?php include 'header.php';?>
-    
+
      <div class="jumbotron jumbotron-fluid">
       <div class="container">
 	<h1 class="display-3">Contact Us</h1>
 	<p class="lead">Have a problem or suggestion? Tell us and we'll listen.</p>
       </div>
     </div>
-    
+
     <div class="container">
       <form method="post">
 	<br>
 	<div class="form-group">
 	  <label class="mr-sm-2">Please enter your email</label>
 	  <input type="email" class="form-control" required name="email" value="" maxlength="60"/></br>
-	  
+
 	  <label class="mr-sm-2">Please Specify Contact Reason</label>
 	  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="reason">
     	<option disabled selected value>Select</option>
@@ -35,20 +35,20 @@
 	  <label class="mr-sm-2">Please specify your concerns here</label>
 	  <textarea class="form-control" required name="textAreaField" id="textAreaField" rows="4" cols="50"></textarea>
 	</div>
-	
+
 	<p>
 	  <input class="btn btn-secondary" type="submit" name="submit" value="submit"/>
 	</p>
 
       </form>
     </div>
-    
-    <?php 
+
+    <?php
 if(isset($_POST['submit'])){
-        
+    //send email for contacting
     $to = "qinglong@indiana.edu"; // this is your Email address
     $from = $_POST['email']; // this is the sender's Email address
-	
+
     $subject = "Form submission: " . $_POST['reason']. " problem";
     $subject2 = "Copy of your form submission";
     $message = $_POST['textAreaField'];
@@ -61,7 +61,7 @@ if(isset($_POST['submit'])){
 	echo '<div style="position:absolute;top:730px;left:90px">';
     echo "Mail Sent. Thank you, we will contact you shortly.";
 	echo '</div>';
-    
+
 }
 ?>
 <br/>

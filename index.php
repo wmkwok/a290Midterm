@@ -5,7 +5,7 @@
     <title>Resource</title>
     <?php include 'stylesheet.php';
           include 'state.php';
-
+          //starts a session
           if (session_status() == PHP_SESSION_NONE) {
               session_start();
               $_SESSION['active'] = "nope";
@@ -15,13 +15,13 @@
               session_write_close(); // optional
           }
           ?>
-          <!--  -->
 
   </head>
   <body>
     <?php
         include 'header.php';
         ?>
+        //js for advanced searching
         <script type="text/javascript"
          src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
          <script>
@@ -49,7 +49,7 @@
 <!-- used to show the advaned search -->
     <div id = "simple" class="container">
 
-    <form class="form-group" action="SearchResult.php" method="post" >
+    <form class="form-group" action="searchresult.php" method="post" >
           <div style="height:300px;">
 
         <label for="searchBar">General Search</label>
@@ -69,7 +69,7 @@
 
 <!-- the complex search content -->
     <div id = "complex" class="container">
-	 <form class="form-group" action="SearchResult.php" method="post" >
+	 <form class="form-group" action="searchresult.php" method="post" >
            <input type="hidden" name="searchc" value="complex">
 	   <label class="mr-sm-2">Grade Level</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="gradeLevel" size="1">

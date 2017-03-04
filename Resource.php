@@ -21,15 +21,16 @@
   <tbody>
 
  <?php
+    //connect to database
        require_once('connect.php');
        $conn = connection();
        mysqli_select_db($conn, "resource");
        $listSources="SELECT filename, gradeLevel, rating FROM files";
-
        $listSources=mysqli_query($conn, $listSources);
        if(mysqli_num_rows($listSources)){
          $counter=1;
          $options="<td><img src=\"fonts/edit.ico\" width=\"20\" height=\"20\" /><img src=\"fonts/trash.ico\" width=\"25\" height=\"25\" /></td>";
+         //if there are results then display as table
          while($row=mysqli_fetch_assoc($listSources)){
             echo("<tr>");
             echo("<td>{$counter}</td>");
@@ -41,6 +42,7 @@
             $counter+=1;
          }
     }
+        //close connection to database
        mysqli_close($conn);
        ?>
   </tbody>

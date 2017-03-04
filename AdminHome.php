@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Untitled Document</title>
+
+<!-- Include stylesheet -->
 	<?php include 'stylesheet.php';?>
 </head>
 
@@ -10,8 +12,8 @@
 <div class="text-center">
 	<label class="mr-sm-2"><b>Number of users: 999</b></label><br>
 <label class="mr-sm-2"><b>Number of resources: 9999</b></label>
-	</div>	
-	
+	</div>
+
 <br/>
 <div class="container">
 <table width="660" height="247" class="table table-hover">
@@ -37,8 +39,8 @@
       <td>level here</td>
       <td>*****</td>
     </tr>
-        
-      
+
+
   </tbody>
 </table>
 </div>
