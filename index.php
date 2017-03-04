@@ -21,7 +21,7 @@
     <?php
         include 'header.php';
         ?>
-        //js for advanced searching
+        <!-- //js for advanced searching -->
         <script type="text/javascript"
          src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
          <script>
