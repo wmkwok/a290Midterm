@@ -3,7 +3,13 @@
 <head>
 <meta charset="utf-8">
 <title>Upload A Resource</title>
-<?php include 'stylesheet.php';?>
+<?php include 'stylesheet.php';
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+            $_SESSION['active'] = "yes";
+            session_write_close(); // optional
+    ?>
   </head>
 
   <body>
@@ -121,80 +127,77 @@
 	   <label class="btn btn-success">
     	Choose File <input type="file" name="userfile" hidden/>
 		</label><br>
-           
+
     <button class="btn btn-secondary" type="submit" name="upload" value="upload"> Upload </button>
-	 </form> 
+	 </form>
 </div>
 
 
-<?php 
+<?php
 
-       if(isset($_POST['upload']) && $_FILES['userfile']['size'] > 0)
-{		
-	
-		$error = $_FILES['userfile']['error'];
-		$fileName = $_FILES['userfile']['name'];
-		echo $fileName;
-		echo '<br/>';
-		
-		$tmpName  = $_FILES['userfile']['tmp_name'];
-		$fileSize = $_FILES['userfile']['size'];
-		$fileType = $_FILES['userfile']['type'];
-	
-		
-		$target_dir = "files/";
- 		$target_file = $target_dir . basename($fileName);
-	
-		echo $fileSize;
-		echo '<br/>';
-		echo $fileType;
-		echo '<br/>';
-		$gradeLevel = $_POST['gradeLevel'];
-		$standard = $_POST['standard'];
-		$resourceType = $_POST['resourceType'];
-		$subject = $_POST['subject'];
-		$concept = $_POST['concept'];
-		$programLanguage = $_POST['programLanguage'];
-		$state = $_POST['state'];
-		$instructionalMethod = $_POST['instructionalMethod'];
-		$user = $_SESSION['username'];
-		$link = '----';
-		$date = date("j, n, Y");  
-	
-		
+       if (isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
+           $error = $_FILES['userfile']['error'];
+           $fileName = $_FILES['userfile']['name'];
+           echo $fileName;
+           echo '<br/>';
 
-		$fp = fopen($tmpName, 'r');
-		$content = fread($fp, $fileSize);
-		$content = addslashes($content);
-		fclose($fp);
-		
-		if(!get_magic_quotes_gpc())
-		{
-			$fileName = addslashes($fileName);
-		}
-		echo("Success upload");
-		include('connect.php');
-		$conn = connection();
-		mysqli_select_db($conn, "files");
-
-		$addFiles = "INSERT INTO `files`(`filename`, `uploadedBy`, `date`, `rating`, `description`, `state`, `gradeLevel`, `link`, `subject`) VALUES ('$fileName','$user','$date', 5, 'good','$state','$gradeLevel','$link','$subject')";
-		
-		mysqli_query($conn, $addFiles) or die(mysqli_error($conn));
-		mysqli_close($conn);
-		echo"shabi";
-	
-		if (move_uploaded_file($tmpName, $target_file)) {
-        echo "<div class=\"alert alert-success\"><strong> '$fileName' Uploaded'</strong></div>";
-    	} else {
-        echo "Sorry, there was an error uploading your file.";
-    	}
-
-	
-		//echo "<div class=\"alert alert-success\"><strong> '$fileName' Uploaded'</strong></div>";			   
-}		
+           $tmpName  = $_FILES['userfile']['tmp_name'];
+           $fileSize = $_FILES['userfile']['size'];
+           $fileType = $_FILES['userfile']['type'];
 
 
-?> 
+           $target_dir = "files/";
+           $target_file = $target_dir . basename($fileName);
+
+           echo $fileSize;
+           echo '<br/>';
+           echo $fileType;
+           echo '<br/>';
+           $gradeLevel = $_POST['gradeLevel'];
+           $standard = $_POST['standard'];
+           $resourceType = $_POST['resourceType'];
+           $subject = $_POST['subject'];
+           $concept = $_POST['concept'];
+           $programLanguage = $_POST['programLanguage'];
+           $state = $_POST['state'];
+           $instructionalMethod = $_POST['instructionalMethod'];
+           $user = $_SESSION['username'];
+           $link = '----';
+           $date = date("j, n, Y");
+
+
+
+           $fp = fopen($tmpName, 'r');
+           $content = fread($fp, $fileSize);
+           $content = addslashes($content);
+           fclose($fp);
+
+           if (!get_magic_quotes_gpc()) {
+               $fileName = addslashes($fileName);
+           }
+           echo("Success upload");
+           include('connect.php');
+           $conn = connection();
+           mysqli_select_db($conn, "files");
+
+           $addFiles = "INSERT INTO `files`(`filename`, `uploadedBy`, `date`, `rating`, `description`, `state`, `gradeLevel`, `link`, `subject`) VALUES ('$fileName','$user','$date', 5, 'good','$state','$gradeLevel','$link','$subject')";
+
+           mysqli_query($conn, $addFiles) or die(mysqli_error($conn));
+           mysqli_close($conn);
+           echo"shabi";
+
+           if (move_uploaded_file($tmpName, $target_file)) {
+               echo "<div class=\"alert alert-success\"><strong> '$fileName' Uploaded'</strong></div>";
+           } else {
+               echo "Sorry, there was an error uploading your file.";
+           }
+
+
+        //echo "<div class=\"alert alert-success\"><strong> '$fileName' Uploaded'</strong></div>";
+       }
+
+
+?>
 <br/>
 <?php include 'footer.php';?>
 </body>
