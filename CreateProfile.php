@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Create Profile</title>
-<?php include 'stylesheet.php';?>
+<?php include 'stylesheet.php'; include 'state.php'?>
 </head>
 <body>
 <?php include 'header.php';?>
@@ -28,7 +28,7 @@
    $type = sanitize($_POST["schoolType"]);
    $level = sanitize($_POST["schoolLevel"]);
    $state = sanitize($_POST["state"]);
-   $bio= mysql_real_escape_string(sanitize($_POST["bio"]));
+   $bio= mysqli_real_escape_string(sanitize($_POST["bio"]));
 
    //connect to mysql
    $conn = mysqli_connect("localhost", 'root', "a290php") or die(mysqli_error($conn));
@@ -100,13 +100,8 @@ function sanitize($data) {
       </select><br><br>
 
       <label class="mr-sm-2">State</label>
-      <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="state">
-	<option disabled selected value>Select</option>
-	<option value="indiana">Indiana</option>
-	<option value="illinois">Illinois</option>
-	<option value="ohio">Ohio</option>
-	<option value="other">Other</option>
-      </select>
+      <select class = "custom-select mb-2 mr-sm-2 mb-sm-0" name="state"><?php echo StateDropdown("Indiana", 'name'); ?></select>
+      <br>
     </div>
 
     <div class="form-group">

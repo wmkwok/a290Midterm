@@ -11,7 +11,7 @@
 			var User = document.getElementById("i");
 			User.src = "userprofileoverview.php";
 		}
-		function rescources(){
+		function resources(){
 			var Res = document.getElementById("i");
 			Res.src = "userresources.php";
         }
@@ -30,7 +30,7 @@
       </div>
   <div class="ui two item stackable tabs menu">
       <a class="item" onClick="userprofile()" >Overview</a>
-      <a class="item" onClick="rescources()" >Rescources Uploaded</a>
+      <a class="item" onClick="resources()" >Rescources Uploaded</a>
 </div>
 <?php
 // include "user_profile_overview.php";
