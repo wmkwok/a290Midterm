@@ -2,6 +2,10 @@
 <?php
 
 if (isset($_GET['fname'])) {
+    if (!isset($_SESSION["username"])) {
+        // check if user logiined or not, only user cna download
+        header('Location: login.php');
+    }
     echo $_GET['fname'];
 
 
