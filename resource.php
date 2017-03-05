@@ -29,9 +29,11 @@
        $listSources=mysqli_query($conn, $listSources);
        if(mysqli_num_rows($listSources)){
          $counter=1;
-         $options="<td><img src=\"fonts/edit.ico\" width=\"20\" height=\"20\" /><img src=\"fonts/trash.ico\" width=\"25\" height=\"25\" /></td>";
+         
          //if there are results then display as table
          while($row=mysqli_fetch_assoc($listSources)){
+			$dfile = $row["filename"];
+			$options="<td><a href='delete.php?dfile=$dfile'><img src=\"fonts/trash.ico\" width=\"25\" height=\"25\" /></a></td>";
             echo("<tr>");
             echo("<td>{$counter}</td>");
             echo("<td>{$row["filename"]}</td>");

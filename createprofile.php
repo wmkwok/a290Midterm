@@ -18,50 +18,48 @@
 
 <?php
   //if post then get all the data from the forms
-   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-       //get all posted variables
+   if($_SERVER["REQUEST_METHOD"] == "POST"){
+   //get all posted variables
    $name = sanitize(($_POST["name"]));
-       $email = $_POST["email"];
-       $username = sanitize($_POST["username"]);
-       $password = sanitize($_POST["password"]);
-       $repeat = sanitize($_POST["repeatPass"]);
-       $type = sanitize($_POST["schoolType"]);
-       $level = sanitize($_POST["schoolLevel"]);
-       $state = sanitize($_POST["state"]);
-       $conn = mysqli_connect("localhost", 'root', "a290php") or die(mysqli_error($conn));
-       $bio= mysqli_real_escape_string($conn, sanitize($_POST["bio"]));
+   $email = $_POST["email"];
+   $username = sanitize($_POST["username"]);
+   $password = sanitize($_POST["password"]);
+   $repeat = sanitize($_POST["repeatPass"]);
+   $type = sanitize($_POST["schoolType"]);
+   $level = sanitize($_POST["schoolLevel"]);
+   $state = sanitize($_POST["state"]);
+   $bio= mysqli_real_escape_string($conn, sanitize($_POST["bio"]));
 
    //connect to mysql
-
+   $conn = mysqli_connect("localhost", 'root', "a290php") or die(mysqli_error($conn));
    mysqli_select_db($conn, 'resource') or die(mysqli_error($conn));
    //query for username
    $userFind = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'") or die(mysqli_error($conn));
-       //check passwords
-       if ($password != $repeat) {
-           echo "Oops! Your passwords don't match!";
-       }
-       //if no results come up
-       elseif (mysqli_num_rows($userFind) == 0) {
-           //do the insert magic here and give the user a chocolate chip cookie :D
-           $password = password_hash($password, PASSWORD_DEFAULT);
-           $addUser = "INSERT INTO users (username, name, email, password, schooltype, schoollevel, state, bio) VALUES ('$username', '$name', '$email', '$password', '$type', '$level', '$state', '$bio')";
-           mysqli_query($conn, $addUser) or die(mysqli_error($conn));
-           mysqli_close($conn);
-           echo "<div class=\"alert alert-success\"><strong>Profile Creation Success!</strong></div>";
-       } else {
-           echo "<div class=\"alert alert-warning\"><strong>Username already in use.</strong></div>";
-       }
+	   //check passwords
+	   if($password != $repeat){
+		   echo "Oops! Your passwords don't match!";
+	   }
+	   //if no results come up
+	   elseif(mysqli_num_rows($userFind) == 0){
+		   //do the insert magic here and give the user a chocolate chip cookie :D
+		   $password = password_hash($password, PASSWORD_DEFAULT);
+		   $addUser = "INSERT INTO users (username, name, email, password, schooltype, schoollevel, state, bio) VALUES ('$username', '$name', '$email', '$password', '$type', '$level', '$state', '$bio')";
+		   mysqli_query($conn, $addUser) or die(mysqli_error($conn));
+		   mysqli_close($conn);
+		   echo "<div class=\"alert alert-success\"><strong>Profile Creation Success!</strong></div>";
+	   }
+	   else{
+		    echo "<div class=\"alert alert-warning\"><strong>Username already in use.</strong></div>";
+	   }
    }
 
   //function to clean inputs alittle
-function sanitize($data)
-{
-    $data = trim($data); //Strip whitespace (or other characters) from the beginning and end of a string
+function sanitize($data) {
+  $data = trim($data); //Strip whitespace (or other characters) from the beginning and end of a string
   $data = stripslashes($data); //Un-quotes a quoted string
   $data = htmlspecialchars($data); //
-  if (isset($data)) {
-      return $data;
-  }
+  if (isset($data))
+  { return $data; }
 }
 ?>
 

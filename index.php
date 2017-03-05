@@ -50,7 +50,7 @@
     <div id = "simple" class="container">
 
     <form class="form-group" action="searchresult.php" method="post" >
-          <div style="height:300px;">
+          <div style="height:420px;">
 
         <label for="searchBar">General Search</label>
         <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python"/>
