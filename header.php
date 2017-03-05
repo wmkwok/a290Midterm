@@ -13,7 +13,8 @@
             if (session_status() == PHP_SESSION_ACTIVE) {
                 echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item'><a class='nav-link' href='resourceupload.php'>Upload</a></li>";
             } else {
-                if (isset($_SESSION['active'])) {
+			
+              if (isset($_SESSION['username'])) {
                     if ($_SESSION["active"] == 'yes') {
                         echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item active'><a class='nav-link' href='resourceupload.php'>Upload</a></li>";
                     } else {
@@ -21,9 +22,12 @@
             // }
                     }
                 } else {
-                    echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item'><a class='nav-link' href='resourceupload.php'>Upload</a></li>";
+                    echo "<li class='nav-item active'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></li>";
+			  }
                 }
-            }
+            
+			
+			
 
              ?>
 
