@@ -13,7 +13,8 @@
   </head>
 
   <body>
- <?php include 'header.php';?>
+ <?php include 'header.php';
+        include 'state.php';?>
 
    <div class="jumbotron jumbotron-fluid">
       <div class="container">
@@ -99,13 +100,8 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">State</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="state" size="1">
-	     <option value="select">Select</option>
-	     <option value="all">All</option>
-	     <option value="indiana">Indiana</option>
-	     <option value="illinois">Illinois</option>
-	     <option value="ohio">Ohio</option>
-	   </select><br>
+<select class = "custom-select mb-2 mr-sm-2 mb-sm-0" name="state"><?php echo StateDropdown("", 'name'); ?></select>
+       <br>
 
 	   <label class="mr-sm-2">Instructional method</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="instructionalMethod" size="1">
