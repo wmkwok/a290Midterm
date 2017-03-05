@@ -10,12 +10,11 @@
         <ul class="navbar-nav mr-auto">
             <!-- this line helps user to high light which seesion tehyare on -->
             <?php
-            if (session_status() == PHP_SESSION_ACTIVE) {
-                echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item'><a class='nav-link' href='resourceupload.php'>Upload</a></li>";
-            } else {
-			
-              if (isset($_SESSION['username'])) {
-                    if ($_SESSION["active"] == 'yes') {
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+                if (isset($_SESSION['username'])) {
+                    if (isset($_SESSION["active"]) && $_SESSION["active"] == 'yes') {
                         echo "<li class='nav-item'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item active'><a class='nav-link' href='resourceupload.php'>Upload</a></li>";
                     } else {
                         echo "<li class='nav-item active'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></a></li><li class='nav-item'><a class='nav-link' href='resourceupload.php'>Upload</a></li>";
@@ -23,11 +22,12 @@
                     }
                 } else {
                     echo "<li class='nav-item active'><a class='nav-link' href='index.php'>Home<span class='sr-only'>(current)</span></li>";
-			  }
                 }
-            
-			
-			
+                session_write_close();
+
+
+
+
 
              ?>
 
@@ -58,6 +58,8 @@
         //    if user tyring to logout
             if (isset($_POST['logout'])) {
                 unset($_SESSION['username']);
+                unset($_SESSION['admin']);
+                // unset($_SESSION['active']);
                 header('Location: login.php');
             } ?>
 			</button>

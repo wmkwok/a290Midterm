@@ -23,12 +23,12 @@
     </div>
 
     <div class="container">
-	 <form class="form-group" method="post" enctype="multipart/form-data">
+	 <form class="form-group" method="post" enctype="multipart/form-data" required>
 
 	   <p>Please choose a file to upload, then click upload.</p>
 
 	   <label class="mr-sm-2">Grade Level</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="gradeLevel" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="gradeLevel" size="1" required>
 	     <option value="select">Select</option>
 	     <option value="pre">Pre-school</option>
 	     <option value="elementary">Elementary School</option>
@@ -37,7 +37,7 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">Standard</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="standard" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0"  name="standard" size="1" required>
 	     <option value="select">Select</option>
 	     <option value="csta">CSTA 2016 Standards (interim)</option>
 	     <option value="iste">ISTE-Standards for Computer Science Educators</option>
@@ -48,7 +48,7 @@
 
 
 	   <label class="mr-sm-2">Resource Type</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="resourceType" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="resourceType" size="1" required>
 	     <option value="select">Select</option>
 	     <option value="assessment">Assessment</option>
 	     <option value="activity">Activity/Exercise</option>
@@ -57,7 +57,7 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">Subject</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="subject" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="subject" size="1" required>
 	     <option value="select">Select</option>
 	     <option value="math">Mathematics</option>
 	     <option value="science">Science</option>
@@ -70,7 +70,7 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">Concept</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="concept" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="concept" size="1" required>
 	     <option value="select">Select</option>
 	     <option value="algorithms">Algorithms and Programs</option>
 	     <option value="computing">Computing Systems</option>
@@ -82,7 +82,7 @@
 
 
 	   <label class="mr-sm-2">Programming language</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="programLanguage" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="programLanguage" size="1" required>
 	     <option value="select">Select</option>
 	     <option value="scratch">Scratch</option>
 	     <option value="blockly">Blockly</option>
@@ -99,7 +99,7 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">State</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="state" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="state" size="1" required>
 	     <option value="select">Select</option>
 	     <option value="all">All</option>
 	     <option value="indiana">Indiana</option>
@@ -108,7 +108,7 @@
 	   </select><br>
 
 	   <label class="mr-sm-2">Instructional method</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="instructionalMethod" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="instructionalMethod" size="1" required>
 	     <option value="select">Select</option>
 	     <option value="problemBased">Problem-based Learning</option>
 	     <option value="projectBased">Project-Based Learning</option>

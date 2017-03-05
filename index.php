@@ -49,11 +49,11 @@
 <!-- used to show the advaned search -->
     <div id = "simple" class="container">
 
-    <form class="form-group" action="searchresult.php" method="post" >
+    <form class="form-group" action="searchresult.php" method="post" required>
           <div style="height:420px;">
 
         <label for="searchBar">General Search</label>
-        <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python"/>
+        <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python" required/>
         <input type="hidden" name="searchc" value="simple">
         <br>
          <div class="form-group">
@@ -69,10 +69,10 @@
 
 <!-- the complex search content -->
     <div id = "complex" class="container">
-	 <form class="form-group" action="searchresult.php" method="post" >
+	 <form class="form-group" action="searchresult.php" method="post"  required>
            <input type="hidden" name="searchc" value="complex">
 	   <label class="mr-sm-2">Grade Level</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="gradeLevel" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="gradeLevel" size="1" required>
 	     <option disabled selected value>Select</option>
 	     <option value="pre">Pre-school</option>
 	     <option value="elementary">Elementary School</option>
@@ -81,7 +81,7 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">Standard</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="standard" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="standard" size="1" required>
 	     <option disabled selected value>Select</option>
 	     <option value="csta">CSTA 2016 Standards (interim)</option>
 	     <option value="iste">ISTE-Standards for Computer Science Educators</option>
@@ -89,7 +89,7 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">Grade Level for these standards</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="standardGradeLevel" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="standardGradeLevel" size="1" required>
 	     <option disabled selected value>Select</option>
 	     <option value="pre">Pre-school</option>
 	     <option value="elementary">Elementary School</option>
@@ -99,7 +99,7 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">Framework Concept</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="concept" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="concept" size="1" required>
 	     <option disabled selected value>Select</option>
 	     <option value="algorithms">Algorithms and Programs</option>
 	     <option value="computing">Computing Systems</option>
@@ -109,7 +109,7 @@
 	   </select></br>
 
    	   <label class="mr-sm-2">Resource Type</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="resourceType" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="resourceType" size="1" required>
 	     <option disabled selected value>Select</option>
 	     <option value="assessment">Assessment</option>
 	     <option value="activity">Activity/Exercise</option>
@@ -118,7 +118,7 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">Select a subject that involves or related to this resource</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="subject" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="subject" size="1" required>
 	     <option disabled selected value>Select</option>
 	     <option value="math">Mathematics</option>
 	     <option value="science">Science</option>
@@ -131,7 +131,7 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">Instructional method of this resource</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="instructionalMethod" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="instructionalMethod" size="1" required>
 	     <option disabled selected value>Select</option>
 	     <option value="problemBased">Problem-based Learning</option>
 	     <option value="projectBased">Project-Based Learning</option>
@@ -145,7 +145,7 @@
 	   </select></br>
 
    	   <label class="mr-sm-2">Programming language used in the resource</label>
-	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="programLanguage" size="1">
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="programLanguage" size="1" required>
 	     <option disabled selected value>Select</option>
 	     <option value="scratch">Scratch</option>
 	     <option value="blockly">Blockly</option>
@@ -163,14 +163,14 @@
 
 
        <label class="mr-sm-2">Select the state of resource</label>
-       <select class = "custom-select mb-2 mr-sm-2 mb-sm-0" name="state"><?php echo StateDropdown("Indiana", 'name'); ?></select>
+       <select class = "custom-select mb-2 mr-sm-2 mb-sm-0" name="state" required><?php echo StateDropdown("Indiana", 'name'); ?> </select>
        <br>
 
 
 
 	   <p>
 	     <label for="searchBar">Keyword Search</label>
-	     <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python Exercises"/>
+	     <input class="form-control" type="text" name="searchBar" value="" placeholder="ex. Python Exercises" required/>
          <div class="form-group">
              <input class="btn btn-primary col-md-3" type="submit" name="submit" value="Search"/>
              <input class="btn btn-secondary col-md-2" type='button' id='sml' value="Hide">

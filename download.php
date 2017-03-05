@@ -2,9 +2,14 @@
 <?php
 
 if (isset($_GET['fname'])) {
-    if (!isset($_SESSION["username"])) {
-        // check if user logiined or not, only user cna download
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+        if (!isset($_SESSION["username"])) {
+            // check if user logiined or not, only user cna download
         header('Location: login.php');
+        }
+
+        session_write_close(); // optional
     }
     echo $_GET['fname'];
 

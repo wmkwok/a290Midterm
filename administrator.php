@@ -26,24 +26,24 @@
        //create a connection and search
        $conn = connection();
        mysqli_select_db($conn, "resource");
-       $listAdmins="SELECT name, username FROM users";
+       $listAdmins="SELECT name, username FROM users WHERE admin = 1";
 
        $listAdmins=mysqli_query($conn, $listAdmins);
-       if(mysqli_num_rows($listAdmins)){
-         $counter=1;
-         $options="<td><img src=\"fonts/edit.ico\" width=\"20\" height=\"20\" /><img src=\"fonts/trash.ico\" width=\"25\" height=\"25\" /></td\
+       if (mysqli_num_rows($listAdmins)) {
+           $counter=1;
+           $options="<td><img src=\"fonts/edit.ico\" width=\"20\" height=\"20\" /><img src=\"fonts/trash.ico\" width=\"25\" height=\"25\" /></td\
 >";
         //display the tables if there are any results
-         while($row=mysqli_fetch_assoc($listAdmins)){
-            echo("<tr>");
-            echo("<td>{$counter}</td>");
-            echo("<td>{$row["name"]}</td>");
-            echo("<td>{$row["username"]}</td>");
-            echo($options);
-            echo("</tr>");
-            $counter+=1;
+         while ($row=mysqli_fetch_assoc($listAdmins)) {
+             echo("<tr>");
+             echo("<td>{$counter}</td>");
+             echo("<td>{$row["name"]}</td>");
+             echo("<td>{$row["username"]}</td>");
+             echo($options);
+             echo("</tr>");
+             $counter+=1;
          }
-    }
+       }
       //close connection
        mysqli_close($conn);
        ?>
