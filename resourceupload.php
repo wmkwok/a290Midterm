@@ -13,8 +13,7 @@
   </head>
 
   <body>
- <?php include 'header.php';
-        include 'state.php';?>
+ <?php include 'header.php';?>
 
    <div class="jumbotron jumbotron-fluid">
       <div class="container">
@@ -100,8 +99,13 @@
 	   </select></br>
 
 	   <label class="mr-sm-2">State</label>
-<select class = "custom-select mb-2 mr-sm-2 mb-sm-0" name="state"><?php echo StateDropdown("", 'name'); ?></select>
-       <br>
+	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="state" size="1">
+	     <option value="select">Select</option>
+	     <option value="all">All</option>
+	     <option value="indiana">Indiana</option>
+	     <option value="illinois">Illinois</option>
+	     <option value="ohio">Ohio</option>
+	   </select><br>
 
 	   <label class="mr-sm-2">Instructional method</label>
 	   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" required name="instructionalMethod" size="1">
@@ -134,8 +138,6 @@
        if (isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
            $error = $_FILES['userfile']['error'];
            $fileName = $_FILES['userfile']['name'];
-           echo $fileName;
-           echo '<br/>';
 
            //information of file
            $tmpName  = $_FILES['userfile']['tmp_name'];
@@ -145,12 +147,6 @@
           //place to store the files, always in files/
            $target_dir = "files/";
            $target_file = $target_dir . basename($fileName);
-
-           //other information about the file
-           echo $fileSize;
-           echo '<br/>';
-           echo $fileType;
-           echo '<br/>';
            $gradeLevel = $_POST['gradeLevel'];
            $standard = $_POST['standard'];
            $resourceType = $_POST['resourceType'];
@@ -173,7 +169,6 @@
                $fileName = addslashes($fileName);
            }
           //connection to database
-           echo("Success upload");
            include('connect.php');
            $conn = connection();
            mysqli_select_db($conn, "files");

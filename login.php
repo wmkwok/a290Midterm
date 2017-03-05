@@ -53,18 +53,11 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 if (password_verify($password, $row['password'])) {
     $_SESSION['username'] = $username;
-
-    if ($row['admin'] == 1) {
-        $_SESSION["admin"] = "1";
-        session_write_close(); // optional
-        header('Location: Admin.php');
-    } else {
-        $_SESSION["admin"] = "0";
-        session_write_close(); // optional
-        header('Location: index.php');
-    }
+    session_write_close(); // optional
+    if($row['admin'] == 1){header('Location: Admin.php');}
+    else{header('Location: index.php');}
     exit;
-} else {
+}else {
     echo '<div style="position:absolute;top:560px;left:90px">';
     echo '<i style="color:red;font-size:20px;">
 		 Incorrect username or password. Type the correct username and password, and try again. </i>' ;
